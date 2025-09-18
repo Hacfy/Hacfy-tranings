@@ -138,7 +138,7 @@ export function TrainingPrograms() {
               {category.programs.map((program, programIndex) => (
                 <Card
                   key={programIndex}
-                  className={`bg-white border-gray-200 hover:border-red-200 hover:shadow-lg transition-all duration-300 group relative ${program.featured ? "ring-2 ring-red-100" : ""}`}
+                  className={`bg-white border-gray-200 hover:border-red-200 hover:shadow-lg transition-all duration-300 group relative flex flex-col h-full ${program.featured ? "ring-2 ring-red-100" : ""}`}
                 >
                   {program.featured && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -146,7 +146,7 @@ export function TrainingPrograms() {
                     </div>
                   )}
 
-                  <CardHeader>
+                  <CardHeader className="flex-shrink-0">
                     <div className="flex items-center justify-between mb-4">
                       <div className="p-2 rounded-lg bg-red-50 border border-red-100">
                         <Award className="w-5 h-5 red-accent" />
@@ -172,8 +172,8 @@ export function TrainingPrograms() {
                     </div>
                   </CardHeader>
 
-                  <CardContent>
-                    <ul className="space-y-2 mb-6">
+                  <CardContent className="flex flex-col flex-grow">
+                    <ul className="space-y-2 mb-6 flex-grow">
                       {program.highlights.map((highlight, index) => (
                         <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
                           <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 red-accent-bg" />
@@ -182,7 +182,7 @@ export function TrainingPrograms() {
                       ))}
                     </ul>
 
-                    <Button className="w-full font-semibold red-accent-bg hover:bg-red-700 text-white">
+                    <Button className="w-full font-semibold red-accent-bg hover:bg-red-700 text-white mt-auto">
                       Learn More
                     </Button>
                   </CardContent>

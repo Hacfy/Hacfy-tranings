@@ -70,19 +70,19 @@ export function Footer() {
             <span className="text-gray-400 text-sm">Follow us:</span>
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/hacfy/posts/?feedView=all"
                 className="p-2 rounded-lg bg-gray-800 border border-gray-700 hover:border-red-500 transition-colors"
               >
                 <Linkedin className="w-4 h-4 text-gray-400 hover:text-red-400" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/hacfy.co/"
                 className="p-2 rounded-lg bg-gray-800 border border-gray-700 hover:border-red-500 transition-colors"
               >
                 <Instagram className="w-4 h-4 text-gray-400 hover:text-red-400" />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@HacFy"
                 className="p-2 rounded-lg bg-gray-800 border border-gray-700 hover:border-red-500 transition-colors"
               >
                 <Youtube className="w-4 h-4 text-gray-400 hover:text-red-400" />
