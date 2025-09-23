@@ -1,4 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
+import { getDatabase } from "@/lib/mongodb"
+import { Registration } from "@/lib/models"
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,10 +18,34 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 })
     }
 
-    // Here you would typically:
-    // 1. Save to database
-    // 2. Send confirmation email
-    // 3. Notify admin team
+    // Generate unique registration ID
+    const registrationId = `REG-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`
+
+    // Save to MongoDB database
+    try {
+      const db = await getDatabase()
+      const registrationsCollection = db.collection<Registration>('registrations')
+      
+      const registration: Registration = {
+        fullName,
+        email,
+        phone,
+        program,
+        experience,
+        goals,
+        agreeTerms: body.agreeTerms || false,
+        createdAt: new Date(),
+        status: 'pending',
+        registrationId,
+        source: 'registration-form'
+      }
+
+      const result = await registrationsCollection.insertOne(registration)
+      console.log("Registration saved to database:", result.insertedId)
+    } catch (dbError) {
+      console.error("Database error:", dbError)
+      return NextResponse.json({ error: "Failed to save registration" }, { status: 500 })
+    }
 
     console.log("Registration received:", {
       fullName,
@@ -28,13 +54,14 @@ export async function POST(request: NextRequest) {
       program,
       experience,
       goals,
+      registrationId,
       timestamp: new Date().toISOString(),
     })
 
     return NextResponse.json(
       {
         message: "Registration successful",
-        registrationId: `REG-${Date.now()}`,
+        registrationId,
       },
       { status: 200 },
     )

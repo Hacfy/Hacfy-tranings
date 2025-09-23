@@ -9,7 +9,7 @@ const features = [
   },
   {
     icon: Users,
-    title: "Expert Faculty",
+    title: "Certified Trainer",
     description: "Learn directly from ethical hackers & security professionals.",
   },
   {

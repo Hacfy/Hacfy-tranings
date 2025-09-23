@@ -20,7 +20,7 @@ export function Footer() {
             </p>
 
             {/* Newsletter */}
-            <div>
+            {/* <div>
               <h4 className="font-semibold text-white mb-3">Stay Updated</h4>
               <div className="flex gap-2 max-w-sm">
                 <Input
@@ -29,7 +29,7 @@ export function Footer() {
                 />
                 <Button className="red-accent-bg hover:bg-red-700 text-white font-semibold">Subscribe</Button>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}

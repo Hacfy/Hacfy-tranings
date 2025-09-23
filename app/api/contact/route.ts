@@ -1,4 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
+import { getDatabase } from "@/lib/mongodb"
+import { ContactSubmission } from "@/lib/models"
 
 // Rate limiting would be implemented here in production
 const submissions = new Map()
@@ -32,16 +34,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
-    // Verify Turnstile token (in production)
-    if (process.env.NODE_ENV === "production" && !captchaToken) {
-      return NextResponse.json({ error: "Captcha verification required" }, { status: 400 })
+    // Verify Turnstile token
+    if (!captchaToken) {
+      return NextResponse.json({ error: "Security verification required" }, { status: 400 })
     }
 
-    if (captchaToken) {
-      const verification = await verifyTurnstile(captchaToken)
-      if (!verification.success) {
-        return NextResponse.json({ error: "Human verification failed" }, { status: 403 })
-      }
+    const verification = await verifyTurnstile(captchaToken)
+    if (!verification.success) {
+      return NextResponse.json({ error: "Security verification failed" }, { status: 403 })
     }
 
     // Rate limiting (basic implementation)
@@ -56,10 +56,28 @@ export async function POST(request: NextRequest) {
 
     submissions.set(clientIP, now)
 
-    // Here you would typically:
-    // 1. Save to database
-    // 2. Send email notification
-    // 3. Log the submission
+    // Save to MongoDB database
+    try {
+      const db = await getDatabase()
+      const contactsCollection = db.collection<ContactSubmission>('contacts')
+      
+      const contactSubmission: ContactSubmission = {
+        name,
+        email,
+        mobile,
+        program,
+        message: message || '',
+        createdAt: new Date(),
+        status: 'new',
+        source: 'contact-form'
+      }
+
+      const result = await contactsCollection.insertOne(contactSubmission)
+      console.log("Contact form submission saved to database:", result.insertedId)
+    } catch (dbError) {
+      console.error("Database error:", dbError)
+      // Continue execution even if database save fails
+    }
 
     console.log("Contact form submission:", { name, email, mobile, program, message })
 

@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Phone, Mail, MapPin, Send } from "lucide-react"
+import { Turnstile } from "@marsidev/react-turnstile"
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -20,21 +21,47 @@ export function ContactForm() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const [turnstileError, setTurnstileError] = useState<string | null>(null)
+  const turnstileRef = useRef<any>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Check if Turnstile token is present
+    if (!turnstileToken) {
+      setTurnstileError("Please complete the security verification")
+      return
+    }
+    
     setIsSubmitting(true)
-
-    // Here you would integrate with Turnstile verification
-    // const turnstileToken = document.querySelector('.cf-turnstile-response')?.value
+    setTurnstileError(null)
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      console.log("Form submitted:", formData)
-      // Reset form
-      setFormData({ name: "", email: "", mobile: "", program: "", message: "" })
-      alert("Thank you! Your message has been sent successfully.")
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          captchaToken: turnstileToken,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        // Reset form and Turnstile
+        setFormData({ name: "", email: "", mobile: "", program: "", message: "" })
+        setTurnstileToken(null)
+        if (turnstileRef.current) {
+          turnstileRef.current.reset()
+        }
+        alert("Thank you! Your message has been sent successfully.")
+      } else {
+        throw new Error(result.error || 'Failed to send message')
+      }
     } catch (error) {
       console.error("Error submitting form:", error)
       alert("There was an error sending your message. Please try again.")
@@ -45,6 +72,21 @@ export function ContactForm() {
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  const handleTurnstileSuccess = (token: string) => {
+    setTurnstileToken(token)
+    setTurnstileError(null)
+  }
+
+  const handleTurnstileError = () => {
+    setTurnstileToken(null)
+    setTurnstileError("Security verification failed. Please try again.")
+  }
+
+  const handleTurnstileExpired = () => {
+    setTurnstileToken(null)
+    setTurnstileError("Security verification expired. Please verify again.")
   }
 
   return (
@@ -199,15 +241,31 @@ export function ContactForm() {
                   />
                 </div>
 
-                {/* Turnstile widget would go here */}
-                <div className="p-4 bg-[#0B0F1A] border border-[#2a2f3e] rounded-lg text-center text-sm text-[#A0A0A0]">
-                   Turnstile verification will be integrated here for security
+                {/* Turnstile Security Verification */}
+                <div className="space-y-2">
+                  <Label className="text-[#E5E5E5]">Security Verification *</Label>
+                  <div className="flex justify-center">
+                    <Turnstile
+                      ref={turnstileRef}
+                      siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+                      onSuccess={handleTurnstileSuccess}
+                      onError={handleTurnstileError}
+                      onExpire={handleTurnstileExpired}
+                      options={{
+                        theme: 'dark',
+                        size: 'normal'
+                      }}
+                    />
+                  </div>
+                  {turnstileError && (
+                    <p className="text-red-400 text-sm text-center">{turnstileError}</p>
+                  )}
                 </div>
 
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[rgba(218,21,21,0.952)] hover:bg-[rgba(218,21,21,0.8)] text-white font-semibold py-3"
+                  disabled={isSubmitting || !turnstileToken}
+                  className="w-full bg-[rgba(218,21,21,0.952)] hover:bg-[rgba(218,21,21,0.8)] text-white font-semibold py-3 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     "Sending..."

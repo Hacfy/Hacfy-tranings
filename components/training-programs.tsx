@@ -1,7 +1,11 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Clock, Users, Award } from "lucide-react"
+import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 const programs = [
   {
@@ -114,6 +118,12 @@ const programs = [
 ]
 
 export function TrainingPrograms() {
+  const router = useRouter()
+
+  const handleLearnMore = () => {
+    router.push('/workshops')
+  }
+
   return (
     <section className="py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -134,61 +144,211 @@ export function TrainingPrograms() {
               <p className="text-lg text-gray-600">{category.subtitle}</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {category.programs.map((program, programIndex) => (
-                <Card
-                  key={programIndex}
-                  className={`bg-white border-gray-200 hover:border-red-200 hover:shadow-lg transition-all duration-300 group relative flex flex-col h-full ${program.featured ? "ring-2 ring-red-100" : ""}`}
-                >
-                  {program.featured && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <Badge className="red-accent-bg text-white font-semibold">Most Popular</Badge>
-                    </div>
-                  )}
-
-                  <CardHeader className="flex-shrink-0">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-2 rounded-lg bg-red-50 border border-red-100">
-                        <Award className="w-5 h-5 red-accent" />
+            {category.category === "Workshops" ? (
+              <div className="bg-white border border-gray-200 rounded-lg p-8 hover:border-red-200 hover:shadow-lg transition-all duration-300">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="p-3 rounded-lg bg-red-50 border border-red-100">
+                        <Award className="w-6 h-6 red-accent" />
                       </div>
-                      <Badge variant="outline" className="border-gray-300 text-gray-600">
-                        {program.level}
-                      </Badge>
-                    </div>
-
-                    <CardTitle className="text-xl text-gray-900 group-hover:text-red-600 transition-colors">
-                      {program.title}
-                    </CardTitle>
-
-                    <div className="flex items-center gap-4 text-sm text-gray-600">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        {program.duration}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Users className="w-4 h-4" />
-                        {program.participants}
+                      <div>
+                        <h4 className="text-2xl font-bold text-gray-900">Comprehensive Workshop Series</h4>
+                        <p className="text-gray-600">Choose from 2-Day, 3-Day, or 5-Day intensive workshops</p>
                       </div>
                     </div>
-                  </CardHeader>
-
-                  <CardContent className="flex flex-col flex-grow">
-                    <ul className="space-y-2 mb-6 flex-grow">
-                      {program.highlights.map((highlight, index) => (
-                        <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 red-accent-bg" />
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Button className="w-full font-semibold red-accent-bg hover:bg-red-700 text-white mt-auto">
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-4 text-sm text-gray-600">
+                        {/* <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          <span>2-5 Days</span>
+                        </div> */}
+                        {/* <div className="flex items-center gap-1">
+                          <Users className="w-4 h-4" />
+                          <span>10-30 Participants</span>
+                        </div> */}
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <h5 className="font-semibold text-gray-900">What You'll Learn:</h5>
+                        <p className="text-gray-600 leading-relaxed">
+                          Our workshop series covers everything from ethical hacking fundamentals to advanced penetration testing techniques. 
+                          Start with our 2-Day workshop for beginners, covering Linux & Kali Lab setup, reconnaissance, and basic web attacks 
+                          like SQL Injection and XSS. Progress to our 3-Day intermediate workshop with OWASP Top 10 deep dive, automated 
+                          reconnaissance, and Burp Suite basics. For advanced learners, our 5-Day workshop includes advanced web pentesting, 
+                          exploit development, privilege escalation, bug bounty basics, real-time attack simulations, SOC overview, incident 
+                          response, and Capture The Flag (CTF) challenges.
+                        </p>
+                        <p className="text-gray-600 leading-relaxed">
+                          Each workshop is designed with hands-on labs, real-world scenarios, and practical exercises to ensure you gain 
+                          actionable skills. Whether you're a complete beginner or an experienced professional looking to enhance your 
+                          cybersecurity expertise, our workshop series provides the perfect learning path for your career goals.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <Button 
+                      onClick={handleLearnMore}
+                      className="font-semibold red-accent-bg hover:bg-red-700 text-white px-8 py-3"
+                    >
                       Learn More
                     </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                  </div>
+                  
+                  <div className="flex justify-center">
+                    <div className="relative w-full max-w-md h-80 rounded-lg overflow-hidden">
+                      <Image
+                        src="/workshop.png"
+                        alt="Cybersecurity Workshop Training"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : category.category === "Bootcamps" ? (
+              <div className="bg-white border border-gray-200 rounded-lg p-8 hover:border-red-200 hover:shadow-lg transition-all duration-300">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="p-3 rounded-lg bg-red-50 border border-red-100">
+                        <Award className="w-6 h-6 red-accent" />
+                      </div>
+                      <div>
+                        <h4 className="text-2xl font-bold text-gray-900">Comprehensive Bootcamp Programs</h4>
+                        <p className="text-gray-600">Choose from 1-Week Intensive or 45-Day Professional Sprint</p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-4 text-sm text-gray-600">
+                        {/* <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          <span>7-45 Days</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Users className="w-4 h-4" />
+                          <span>10-20 Participants</span>
+                        </div> */}
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <h5 className="font-semibold text-gray-900">What You'll Master:</h5>
+                        <p className="text-gray-600 leading-relaxed">
+                          Our bootcamp programs are designed for rapid career transformation in cybersecurity. The 1-Week Intensive Bootcamp 
+                          covers core cybersecurity skills through practical labs, including networking fundamentals, web application testing, 
+                          system security, real-world attack scenarios, and industry certification preparation. Perfect for professionals looking 
+                          to quickly upskill or transition into cybersecurity.
+                        </p>
+                        <p className="text-gray-600 leading-relaxed">
+                          The HacFy CyberSprint is our flagship 45-day professional program structured in five comprehensive phases. Phase 1 
+                          (Days 1-10) covers core fundamentals, Phase 2 (Days 11-20) focuses on information gathering techniques, Phase 3 
+                          (Days 21-30) dives deep into web and system penetration testing, Phase 4 (Days 31-40) covers post-exploitation 
+                          strategies, and Phase 5 (Days 41-45) culminates with Capture The Flag challenges and professional reporting.
+                        </p>
+                        <p className="text-gray-600 leading-relaxed">
+                          Both programs feature hands-on labs, real-world scenarios, industry-standard tools, and mentorship from certified 
+                          cybersecurity professionals. Graduates receive industry-recognized certificates and career placement assistance.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-4">
+                      <Button 
+                        onClick={handleLearnMore}
+                        className="font-semibold red-accent-bg hover:bg-red-700 text-white px-8 py-3"
+                      >
+                        View Bootcamp Details
+                      </Button>
+                      <Button 
+                        variant="outline"
+                        onClick={handleLearnMore}
+                        className="font-semibold border-gray-300 text-gray-700 px-8 py-3"
+                      >
+                        Download Syllabus
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-center">
+                    <div className="relative w-full max-w-md h-80 rounded-lg overflow-hidden shadow-xl">
+                      <Image
+                        src="/boot.png"
+                        alt="Cybersecurity Bootcamp Training"
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                      <div className="absolute bottom-6 left-6 text-white">
+                        <h4 className="text-xl font-semibold mb-2">Intensive Learning</h4>
+                        <p className="text-sm opacity-90">Hands-on practical training</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {category.programs.map((program, programIndex) => (
+                  <Card
+                    key={programIndex}
+                    className={`bg-white border-gray-200 hover:border-red-200 hover:shadow-lg transition-all duration-300 group relative flex flex-col h-full ${program.featured ? "ring-2 ring-red-100" : ""}`}
+                  >
+                    {program.featured && (
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <Badge className="red-accent-bg text-white font-semibold">Most Popular</Badge>
+                      </div>
+                    )}
+
+                    <CardHeader className="flex-shrink-0">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="p-2 rounded-lg bg-red-50 border border-red-100">
+                          <Award className="w-5 h-5 red-accent" />
+                        </div>
+                        <Badge variant="outline" className="border-gray-300 text-gray-600">
+                          {program.level}
+                        </Badge>
+                      </div>
+
+                      <CardTitle className="text-xl text-gray-900 group-hover:text-red-600 transition-colors">
+                        {program.title}
+                      </CardTitle>
+
+                      <div className="flex items-center gap-4 text-sm text-gray-600">
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          {program.duration}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Users className="w-4 h-4" />
+                          {program.participants}
+                        </div>
+                      </div>
+                    </CardHeader>
+
+                    <CardContent className="flex flex-col flex-grow">
+                      <ul className="space-y-2 mb-6 flex-grow">
+                        {program.highlights.map((highlight, index) => (
+                          <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 red-accent-bg" />
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <Button 
+                        onClick={handleLearnMore}
+                        className="w-full font-semibold red-accent-bg hover:bg-red-700 text-white mt-auto"
+                      >
+                        Learn More
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>

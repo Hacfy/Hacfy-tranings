@@ -57,19 +57,30 @@ export default function RegisterPage() {
 
     setIsSubmitting(true)
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-
-      setShowSuccess(true)
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        program: "",
-        experience: "",
-        goals: "",
-        agreeTerms: false,
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setShowSuccess(true)
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          program: "",
+          experience: "",
+          goals: "",
+          agreeTerms: false,
+        })
+      } else {
+        throw new Error(result.error || 'Failed to submit registration')
+      }
     } catch (error) {
       console.error("Error submitting registration:", error)
       alert("Failed to submit registration. Please try again later.")
