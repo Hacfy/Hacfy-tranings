@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -38,6 +39,7 @@ import {
 } from "lucide-react"
 
 export default function BootcampsPage() {
+  const [activeProgram, setActiveProgram] = useState<'intensive' | 'cybersprint'>('intensive')
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -64,164 +66,307 @@ export default function BootcampsPage() {
             <p className="text-lg text-gray-600">Intensive programs designed for rapid career transformation in cybersecurity</p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* 1-Week Intensive Bootcamp */}
-            <Card className="bg-white border-gray-200 hover:border-red-200 hover:shadow-xl transition-all duration-300 group relative flex flex-col h-full">
-              <CardHeader className="flex-shrink-0">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-lg bg-red-50 border border-red-100">
-                    <Zap className="w-6 h-6 text-red-600" />
+          {/* Toggle Buttons */}
+          <div className="flex justify-center mb-12">
+            <div className="bg-gray-100 p-1 rounded-lg inline-flex">
+              <Button
+                onClick={() => setActiveProgram('intensive')}
+                className={`px-8 py-3 font-semibold transition-all duration-300 ${
+                  activeProgram === 'intensive'
+                    ? 'bg-red-600 text-white shadow-lg'
+                    : 'bg-transparent text-gray-600 hover:text-red-600 hover:bg-red-50'
+                }`}
+              >
+                1-Week Intensive Bootcamp
+              </Button>
+              <Button
+                onClick={() => setActiveProgram('cybersprint')}
+                className={`px-8 py-3 font-semibold transition-all duration-300 ${
+                  activeProgram === 'cybersprint'
+                    ? 'bg-red-600 text-white shadow-lg'
+                    : 'bg-transparent text-gray-600 hover:text-red-600 hover:bg-red-50'
+                }`}
+              >
+                HacFy CyberSprint
+              </Button>
+            </div>
+          </div>
+
+          {/* Program Content */}
+          <div className="max-w-4xl mx-auto">
+            {activeProgram === 'intensive' && (
+              <Card className="bg-white border-gray-200 hover:border-red-200 hover:shadow-xl transition-all duration-300 group">
+                <CardHeader className="text-center">
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="p-3 rounded-lg bg-red-50 border border-red-100">
+                      <Zap className="w-6 h-6 text-red-600" />
+                    </div>
+                    <Badge variant="outline" className="border-red-300 text-red-600 bg-red-50 ml-4">
+                      Intensive
+                    </Badge>
                   </div>
-                  <Badge variant="outline" className="border-red-300 text-red-600 bg-red-50">
-                    Intensive
-                  </Badge>
-                </div>
 
-                <CardTitle className="text-2xl text-gray-900 group-hover:text-red-600 transition-colors">
-                  1-Week Intensive Bootcamp
-                </CardTitle>
+                  <CardTitle className="text-3xl text-gray-900 group-hover:text-red-600 transition-colors mb-4">
+                    1-Week Intensive Bootcamp
+                  </CardTitle>
 
-                <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    7 Days
+                  <div className="flex items-center justify-center gap-6 text-sm text-gray-600 mb-6">
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      7 Days
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Users className="w-4 h-4" />
+                      15-25 Students
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Award className="w-4 h-4" />
+                      Certificate
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="w-4 h-4" />
-                    15-25 Students
+
+                  <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
+                    Perfect for professionals looking to quickly upskill or transition into cybersecurity. 
+                    Covers core cybersecurity skills through practical labs and real-world attack scenarios.
+                  </p>
+                </CardHeader>
+
+                <CardContent className="px-8 pb-8">
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4 text-gray-900">What You'll Master:</h3>
+                      <ul className="space-y-3">
+                        <li className="text-sm text-gray-600 flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <span>Networking fundamentals and security protocols</span>
+                        </li>
+                        <li className="text-sm text-gray-600 flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <span>Web application testing and vulnerability assessment</span>
+                        </li>
+                        <li className="text-sm text-gray-600 flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <span>System security and penetration testing</span>
+                        </li>
+                        <li className="text-sm text-gray-600 flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <span>Real-world attack scenarios and simulations</span>
+                        </li>
+                        <li className="text-sm text-gray-600 flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <span>Industry certification preparation</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4 text-gray-900">Daily Schedule:</h3>
+                      <ul className="space-y-3">
+                        <li className="text-sm text-gray-600 flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <span><strong>Day 1-2:</strong> Networking & Security Fundamentals</span>
+                        </li>
+                        <li className="text-sm text-gray-600 flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <span><strong>Day 3-4:</strong> Web Application Security</span>
+                        </li>
+                        <li className="text-sm text-gray-600 flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <span><strong>Day 5-6:</strong> System Penetration Testing</span>
+                        </li>
+                        <li className="text-sm text-gray-600 flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <span><strong>Day 7:</strong> CTF Challenge & Certification</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Award className="w-4 h-4" />
-                    Certificate
+
+                  <div className="mt-8 text-center">
+                    <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3">
+                      Enroll in 1-Week Bootcamp
+                    </Button>
                   </div>
-                </div>
+                </CardContent>
+              </Card>
+            )}
 
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Perfect for professionals looking to quickly upskill or transition into cybersecurity. 
-                  Covers core cybersecurity skills through practical labs and real-world attack scenarios.
-                </p>
-              </CardHeader>
-
-              <CardContent className="flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold mb-4 text-gray-900">What You'll Master:</h3>
-                <ul className="space-y-3 mb-6 flex-grow">
-                  <li className="text-sm text-gray-600 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    <span>Networking fundamentals and security protocols</span>
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    <span>Web application testing and vulnerability assessment</span>
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    <span>System security and penetration testing</span>
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    <span>Real-world attack scenarios and simulations</span>
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    <span>Industry certification preparation</span>
-                  </li>
-                </ul>
-
-                <div className="mt-auto">
-                  <Button className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3">
-                    Enroll in 1-Week Bootcamp
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* 45-Day CyberSprint */}
-            <Card className="bg-white border-gray-200 hover:border-red-200 hover:shadow-xl transition-all duration-300 group relative flex flex-col h-full">
-              <CardHeader className="flex-shrink-0">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-lg bg-blue-50 border border-blue-100">
-                    <Trophy className="w-6 h-6 text-blue-600" />
+            {activeProgram === 'cybersprint' && (
+              <Card className="bg-white border-gray-200 hover:border-red-200 hover:shadow-xl transition-all duration-300 group">
+                <CardHeader className="text-center">
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="p-3 rounded-lg bg-red-50 border border-red-100">
+                      <Trophy className="w-6 h-6 text-red-600" />
+                    </div>
+                    <Badge variant="outline" className="border-red-300 text-red-600 bg-red-50 ml-4">
+                      Flagship Program
+                    </Badge>
                   </div>
-                  <Badge variant="outline" className="border-blue-300 text-blue-600 bg-blue-50">
-                    Flagship Program
-                  </Badge>
-                </div>
 
-                <CardTitle className="text-2xl text-gray-900 group-hover:text-red-600 transition-colors">
-                  HacFy CyberSprint
-                </CardTitle>
+                  <CardTitle className="text-3xl text-gray-900 group-hover:text-red-600 transition-colors mb-4">
+                    HacFy CyberSprint
+                  </CardTitle>
 
-                <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    45 Days
+                  <div className="flex items-center justify-center gap-6 text-sm text-gray-600 mb-6">
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      45 Days
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Users className="w-4 h-4" />
+                      10-20 Students
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Award className="w-4 h-4" />
+                      Professional Certificate
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="w-4 h-4" />
-                    10-20 Students
+
+                  <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
+                    Our flagship 45-day professional program structured in five comprehensive phases. 
+                    Designed for complete career transformation with hands-on labs and mentorship.
+                  </p>
+                </CardHeader>
+
+                <CardContent className="px-8 pb-8">
+                  <div className="space-y-6">
+                    <h3 className="text-xl font-semibold text-gray-900 text-center">Program Phases:</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-3 p-4 bg-red-50 rounded-lg">
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <div>
+                            <h4 className="font-semibold text-gray-900">Phase 1 (Days 1-10)</h4>
+                            <p className="text-sm text-gray-600">Core fundamentals and cybersecurity principles</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 p-4 bg-red-50 rounded-lg">
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <div>
+                            <h4 className="font-semibold text-gray-900">Phase 2 (Days 11-20)</h4>
+                            <p className="text-sm text-gray-600">Information gathering and reconnaissance techniques</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 p-4 bg-red-50 rounded-lg">
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <div>
+                            <h4 className="font-semibold text-gray-900">Phase 3 (Days 21-30)</h4>
+                            <p className="text-sm text-gray-600">Web & system penetration testing</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-3 p-4 bg-red-50 rounded-lg">
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <div>
+                            <h4 className="font-semibold text-gray-900">Phase 4 (Days 31-40)</h4>
+                            <p className="text-sm text-gray-600">Post-exploitation strategies and lateral movement</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 p-4 bg-red-50 rounded-lg">
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-red-600" />
+                          <div>
+                            <h4 className="font-semibold text-gray-900">Phase 5 (Days 41-45)</h4>
+                            <p className="text-sm text-gray-600">CTF challenges and professional reporting</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Award className="w-4 h-4" />
-                    Professional Certificate
+
+                  <div className="mt-8 text-center">
+                    <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3">
+                      Enroll in CyberSprint
+                    </Button>
                   </div>
-                </div>
-
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Our flagship 45-day professional program structured in five comprehensive phases. 
-                  Designed for complete career transformation with hands-on labs and mentorship.
-                </p>
-              </CardHeader>
-
-              <CardContent className="flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold mb-4 text-gray-900">Program Structure:</h3>
-                <ul className="space-y-3 mb-6 flex-grow">
-                  <li className="text-sm text-gray-600 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-blue-600" />
-                    <span><strong>Phase 1 (Days 1-10):</strong> Core fundamentals</span>
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-blue-600" />
-                    <span><strong>Phase 2 (Days 11-20):</strong> Information gathering techniques</span>
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-blue-600" />
-                    <span><strong>Phase 3 (Days 21-30):</strong> Web & system penetration testing</span>
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-blue-600" />
-                    <span><strong>Phase 4 (Days 31-40):</strong> Post-exploitation strategies</span>
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-blue-600" />
-                    <span><strong>Phase 5 (Days 41-45):</strong> CTF challenges & reporting</span>
-                  </li>
-                </ul>
-
-                <div className="mt-auto">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3">
-                    Enroll in CyberSprint
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
       </section>
 
-      {/* CyberSprint Detailed Phases Section */}
+      {/* Detailed Phases Section */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              HacFy CyberSprint: 45-Day Journey
+              {activeProgram === 'intensive' 
+                ? '1-Week Intensive Bootcamp: Complete Journey'
+                : 'HacFy CyberSprint: 45-Day Journey'
+              }
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A comprehensive 5-phase program designed for complete cybersecurity career transformation
+              {activeProgram === 'intensive'
+                ? 'A comprehensive 7-day intensive program designed for rapid cybersecurity skill acquisition'
+                : 'A comprehensive 5-phase program designed for complete cybersecurity career transformation'
+              }
             </p>
           </div>
 
           <div className="space-y-8">
-            {[
+            {(activeProgram === 'intensive' ? [
+              {
+                phase: "Day 1-2",
+                title: "Networking & Security Fundamentals",
+                duration: "Foundation Building",
+                icon: BookOpen,
+                color: "red",
+                description: "Build a solid foundation in networking and cybersecurity principles",
+                topics: [
+                  "Network protocols and security architecture",
+                  "TCP/IP fundamentals and vulnerabilities",
+                  "Operating system security (Windows & Linux)",
+                  "Basic cryptography and encryption",
+                  "Security policies and compliance basics"
+                ]
+              },
+              {
+                phase: "Day 3-4",
+                title: "Web Application Security",
+                duration: "Web Security Focus",
+                icon: Target,
+                color: "red",
+                description: "Master web application security testing and vulnerability assessment",
+                topics: [
+                  "OWASP Top 10 web vulnerabilities",
+                  "Web application penetration testing",
+                  "SQL injection and XSS attacks",
+                  "Authentication and session management",
+                  "Web security tools and methodologies"
+                ]
+              },
+              {
+                phase: "Day 5-6",
+                title: "System Penetration Testing",
+                duration: "System Security",
+                icon: Shield,
+                color: "red",
+                description: "Advanced system penetration testing and exploitation techniques",
+                topics: [
+                  "Network penetration testing",
+                  "Privilege escalation techniques",
+                  "Post-exploitation strategies",
+                  "Wireless security assessment",
+                  "Social engineering techniques"
+                ]
+              },
+              {
+                phase: "Day 7",
+                title: "CTF Challenge & Certification",
+                duration: "Final Assessment",
+                icon: Flag,
+                color: "red",
+                description: "Capture The Flag competition and professional certification",
+                topics: [
+                  "Capture The Flag (CTF) challenges",
+                  "Real-world attack simulations",
+                  "Professional reporting skills",
+                  "Industry certification preparation",
+                  "Career guidance and next steps"
+                ]
+              }
+            ] : [
               {
                 phase: "Phase 1",
                 title: "Core Fundamentals",
@@ -242,7 +387,7 @@ export default function BootcampsPage() {
                 title: "Information Gathering",
                 duration: "Days 11-20",
                 icon: Search,
-                color: "blue",
+                color: "red",
                 description: "Master reconnaissance and intelligence gathering techniques",
                 topics: [
                   "OSINT (Open Source Intelligence) gathering",
@@ -257,7 +402,7 @@ export default function BootcampsPage() {
                 title: "Penetration Testing",
                 duration: "Days 21-30",
                 icon: Target,
-                color: "green",
+                color: "red",
                 description: "Deep dive into web and system penetration testing",
                 topics: [
                   "OWASP Top 10 web vulnerabilities",
@@ -272,7 +417,7 @@ export default function BootcampsPage() {
                 title: "Post-Exploitation",
                 duration: "Days 31-40",
                 icon: Bug,
-                color: "purple",
+                color: "red",
                 description: "Advanced techniques for maintaining access and lateral movement",
                 topics: [
                   "Privilege escalation techniques",
@@ -287,7 +432,7 @@ export default function BootcampsPage() {
                 title: "CTF & Professional Reporting",
                 duration: "Days 41-45",
                 icon: Flag,
-                color: "orange",
+                color: "red",
                 description: "Capture The Flag challenges and professional reporting skills",
                 topics: [
                   "Capture The Flag (CTF) competitions",
@@ -297,7 +442,7 @@ export default function BootcampsPage() {
                   "Career preparation and job placement"
                 ]
               }
-            ].map((phase, index) => (
+            ]).map((phase, index) => (
               <Card key={index} className="bg-white border-gray-200 hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex items-start gap-6">

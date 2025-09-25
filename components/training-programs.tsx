@@ -125,54 +125,43 @@ export function TrainingPrograms() {
   }
 
   return (
-    <section className="py-20 px-4 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance text-gray-900">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white mobile-section">
+      <div className="max-w-7xl mx-auto mobile-container">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-balance text-gray-900 mobile-heading">
             Training <span className="red-accent">Programs</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto text-balance">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto text-balance mobile-readable">
             Choose from our comprehensive range of cybersecurity training programs designed for every skill level and
             career goal.
           </p>
         </div>
 
         {programs.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="mb-16">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold mb-2 text-gray-900">{category.category}</h3>
-              <p className="text-lg text-gray-600">{category.subtitle}</p>
+          <div key={categoryIndex} className="mb-12 sm:mb-16">
+            <div className="text-center mb-8 sm:mb-12">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900 mobile-heading">{category.category}</h3>
+              <p className="text-base sm:text-lg text-gray-600 mobile-readable">{category.subtitle}</p>
             </div>
 
             {category.category === "Workshops" ? (
-              <div className="bg-white border border-gray-200 rounded-lg p-8 hover:border-red-200 hover:shadow-lg transition-all duration-300">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="p-3 rounded-lg bg-red-50 border border-red-100">
-                        <Award className="w-6 h-6 red-accent" />
+              <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 hover:border-red-200 hover:shadow-lg transition-all duration-300 mobile-card">
+                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+                  <div className="space-y-4 sm:space-y-6">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="p-2 sm:p-3 rounded-lg bg-red-50 border border-red-100 flex-shrink-0">
+                        <Award className="w-5 h-5 sm:w-6 sm:h-6 red-accent" />
                       </div>
                       <div>
-                        <h4 className="text-2xl font-bold text-gray-900">Comprehensive Workshop Series</h4>
-                        <p className="text-gray-600">Choose from 2-Day, 3-Day, or 5-Day intensive workshops</p>
+                        <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mobile-heading">Comprehensive Workshop Series</h4>
+                        <p className="text-sm sm:text-base text-gray-600 mobile-readable">Choose from 2-Day, 3-Day, or 5-Day intensive workshops</p>
                       </div>
                     </div>
                     
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-4 text-sm text-gray-600">
-                        {/* <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          <span>2-5 Days</span>
-                        </div> */}
-                        {/* <div className="flex items-center gap-1">
-                          <Users className="w-4 h-4" />
-                          <span>10-30 Participants</span>
-                        </div> */}
-                      </div>
-                      
+                    <div className="space-y-3 sm:space-y-4">
                       <div className="space-y-3">
-                        <h5 className="font-semibold text-gray-900">What You'll Learn:</h5>
-                        <p className="text-gray-600 leading-relaxed">
+                        <h5 className="font-semibold text-gray-900 text-base sm:text-lg">What You'll Learn:</h5>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
                           Our workshop series covers everything from ethical hacking fundamentals to advanced penetration testing techniques. 
                           Start with our 2-Day workshop for beginners, covering Linux & Kali Lab setup, reconnaissance, and basic web attacks 
                           like SQL Injection and XSS. Progress to our 3-Day intermediate workshop with OWASP Top 10 deep dive, automated 
@@ -180,7 +169,7 @@ export function TrainingPrograms() {
                           exploit development, privilege escalation, bug bounty basics, real-time attack simulations, SOC overview, incident 
                           response, and Capture The Flag (CTF) challenges.
                         </p>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
                           Each workshop is designed with hands-on labs, real-world scenarios, and practical exercises to ensure you gain 
                           actionable skills. Whether you're a complete beginner or an experienced professional looking to enhance your 
                           cybersecurity expertise, our workshop series provides the perfect learning path for your career goals.
@@ -190,14 +179,14 @@ export function TrainingPrograms() {
                     
                     <Button 
                       onClick={handleLearnMore}
-                      className="font-semibold red-accent-bg hover:bg-red-700 text-white px-8 py-3"
+                      className="w-full sm:w-auto font-semibold red-accent-bg hover:bg-red-700 text-white px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
                     >
                       Learn More
                     </Button>
                   </div>
                   
-                  <div className="flex justify-center">
-                    <div className="relative w-full max-w-md h-80 rounded-lg overflow-hidden">
+                  <div className="flex justify-center order-first lg:order-last">
+                    <div className="relative w-full max-w-sm sm:max-w-md h-64 sm:h-80 rounded-lg overflow-hidden">
                       <Image
                         src="/workshop.png"
                         alt="Cybersecurity Workshop Training"
@@ -209,71 +198,60 @@ export function TrainingPrograms() {
                 </div>
               </div>
             ) : category.category === "Bootcamps" ? (
-              <div className="bg-white border border-gray-200 rounded-lg p-8 hover:border-red-200 hover:shadow-lg transition-all duration-300">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="p-3 rounded-lg bg-red-50 border border-red-100">
-                        <Award className="w-6 h-6 red-accent" />
+              <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 hover:border-red-200 hover:shadow-lg transition-all duration-300 mobile-card">
+                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+                  <div className="space-y-4 sm:space-y-6">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="p-2 sm:p-3 rounded-lg bg-red-50 border border-red-100 flex-shrink-0">
+                        <Award className="w-5 h-5 sm:w-6 sm:h-6 red-accent" />
                       </div>
                       <div>
-                        <h4 className="text-2xl font-bold text-gray-900">Comprehensive Bootcamp Programs</h4>
-                        <p className="text-gray-600">Choose from 1-Week Intensive or 45-Day Professional Sprint</p>
+                        <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mobile-heading">Comprehensive Bootcamp Programs</h4>
+                        <p className="text-sm sm:text-base text-gray-600 mobile-readable">Choose from 1-Week Intensive or 45-Day Professional Sprint</p>
                       </div>
                     </div>
                     
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-4 text-sm text-gray-600">
-                        {/* <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          <span>7-45 Days</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Users className="w-4 h-4" />
-                          <span>10-20 Participants</span>
-                        </div> */}
-                      </div>
-                      
+                    <div className="space-y-3 sm:space-y-4">
                       <div className="space-y-3">
-                        <h5 className="font-semibold text-gray-900">What You'll Master:</h5>
-                        <p className="text-gray-600 leading-relaxed">
+                        <h5 className="font-semibold text-gray-900 text-base sm:text-lg">What You'll Master:</h5>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
                           Our bootcamp programs are designed for rapid career transformation in cybersecurity. The 1-Week Intensive Bootcamp 
                           covers core cybersecurity skills through practical labs, including networking fundamentals, web application testing, 
                           system security, real-world attack scenarios, and industry certification preparation. Perfect for professionals looking 
                           to quickly upskill or transition into cybersecurity.
                         </p>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
                           The HacFy CyberSprint is our flagship 45-day professional program structured in five comprehensive phases. Phase 1 
                           (Days 1-10) covers core fundamentals, Phase 2 (Days 11-20) focuses on information gathering techniques, Phase 3 
                           (Days 21-30) dives deep into web and system penetration testing, Phase 4 (Days 31-40) covers post-exploitation 
                           strategies, and Phase 5 (Days 41-45) culminates with Capture The Flag challenges and professional reporting.
                         </p>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
                           Both programs feature hands-on labs, real-world scenarios, industry-standard tools, and mentorship from certified 
                           cybersecurity professionals. Graduates receive industry-recognized certificates and career placement assistance.
                         </p>
                       </div>
                     </div>
                     
-                    <div className="flex gap-4">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                       <Button 
                         onClick={handleLearnMore}
-                        className="font-semibold red-accent-bg hover:bg-red-700 text-white px-8 py-3"
+                        className="w-full sm:w-auto font-semibold red-accent-bg hover:bg-red-700 text-white px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
                       >
                         View Bootcamp Details
                       </Button>
                       <Button 
                         variant="outline"
                         onClick={handleLearnMore}
-                        className="font-semibold border-gray-300 text-gray-700 px-8 py-3"
+                        className="w-full sm:w-auto font-semibold border-gray-300 text-gray-700 px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
                       >
                         Download Syllabus
                       </Button>
                     </div>
                   </div>
                   
-                  <div className="flex justify-center">
-                    <div className="relative w-full max-w-md h-80 rounded-lg overflow-hidden shadow-xl">
+                  <div className="flex justify-center order-first lg:order-last">
+                    <div className="relative w-full max-w-sm sm:max-w-md h-64 sm:h-80 rounded-lg overflow-hidden shadow-xl">
                       <Image
                         src="/boot.png"
                         alt="Cybersecurity Bootcamp Training"
@@ -281,58 +259,58 @@ export function TrainingPrograms() {
                         className="object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                      <div className="absolute bottom-6 left-6 text-white">
-                        <h4 className="text-xl font-semibold mb-2">Intensive Learning</h4>
-                        <p className="text-sm opacity-90">Hands-on practical training</p>
+                      <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 text-white">
+                        <h4 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">Intensive Learning</h4>
+                        <p className="text-xs sm:text-sm opacity-90">Hands-on practical training</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {category.programs.map((program, programIndex) => (
                   <Card
                     key={programIndex}
-                    className={`bg-white border-gray-200 hover:border-red-200 hover:shadow-lg transition-all duration-300 group relative flex flex-col h-full ${program.featured ? "ring-2 ring-red-100" : ""}`}
+                    className={`bg-white border-gray-200 hover:border-red-200 hover:shadow-lg transition-all duration-300 group relative flex flex-col h-full mobile-card ${program.featured ? "ring-2 ring-red-100" : ""}`}
                   >
                     {program.featured && (
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                        <Badge className="red-accent-bg text-white font-semibold">Most Popular</Badge>
+                      <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2">
+                        <Badge className="red-accent-bg text-white font-semibold text-xs sm:text-sm px-2 sm:px-3 py-1">Most Popular</Badge>
                       </div>
                     )}
 
-                    <CardHeader className="flex-shrink-0">
-                      <div className="flex items-center justify-between mb-4">
+                    <CardHeader className="flex-shrink-0 p-4 sm:p-6">
+                      <div className="flex items-center justify-between mb-3 sm:mb-4">
                         <div className="p-2 rounded-lg bg-red-50 border border-red-100">
-                          <Award className="w-5 h-5 red-accent" />
+                          <Award className="w-4 h-4 sm:w-5 sm:h-5 red-accent" />
                         </div>
-                        <Badge variant="outline" className="border-gray-300 text-gray-600">
+                        <Badge variant="outline" className="border-gray-300 text-gray-600 text-xs sm:text-sm">
                           {program.level}
                         </Badge>
                       </div>
 
-                      <CardTitle className="text-xl text-gray-900 group-hover:text-red-600 transition-colors">
+                      <CardTitle className="text-lg sm:text-xl text-gray-900 group-hover:text-red-600 transition-colors mobile-heading">
                         {program.title}
                       </CardTitle>
 
-                      <div className="flex items-center gap-4 text-sm text-gray-600">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600">
                         <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
+                          <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                           {program.duration}
                         </div>
                         <div className="flex items-center gap-1">
-                          <Users className="w-4 h-4" />
+                          <Users className="w-3 h-3 sm:w-4 sm:h-4" />
                           {program.participants}
                         </div>
                       </div>
                     </CardHeader>
 
-                    <CardContent className="flex flex-col flex-grow">
-                      <ul className="space-y-2 mb-6 flex-grow">
+                    <CardContent className="flex flex-col flex-grow p-4 sm:p-6 pt-0">
+                      <ul className="space-y-2 mb-4 sm:mb-6 flex-grow">
                         {program.highlights.map((highlight, index) => (
-                          <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 red-accent-bg" />
+                          <li key={index} className="text-xs sm:text-sm text-gray-600 flex items-start gap-2 mobile-readable">
+                            <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full mt-2 flex-shrink-0 red-accent-bg" />
                             {highlight}
                           </li>
                         ))}
@@ -340,7 +318,7 @@ export function TrainingPrograms() {
 
                       <Button 
                         onClick={handleLearnMore}
-                        className="w-full font-semibold red-accent-bg hover:bg-red-700 text-white mt-auto"
+                        className="w-full font-semibold red-accent-bg hover:bg-red-700 text-white mt-auto mobile-button mobile-touch-target text-sm sm:text-base py-2 sm:py-3"
                       >
                         Learn More
                       </Button>
@@ -355,3 +333,5 @@ export function TrainingPrograms() {
     </section>
   )
 }
+
+

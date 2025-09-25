@@ -48,176 +48,253 @@ export default function LearnMorePage() {
         </div>
       </section>
 
-      {/* Workshop Programs Section */}
-      <section className="py-16 px-4 bg-white">
+      {/* Workshop Programs Section - Redesigned */}
+      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-2 text-gray-900">Fast Learning for Beginners & Professionals</h2>
-            <p className="text-lg text-gray-600">Choose the workshop that matches your skill level and career goals</p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+              Fast Learning for <span className="text-red-600">Beginners & Professionals</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choose the workshop that matches your skill level and career goals. Each program is designed for maximum learning impact.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* 2-Day Workshop */}
-            <Card className="bg-white border-gray-200 hover:border-red-200 hover:shadow-lg transition-all duration-300 group relative flex flex-col h-full">
-              <CardHeader className="flex-shrink-0">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-2 rounded-lg bg-red-50 border border-red-100">
-                    <Award className="w-5 h-5 text-red-600" />
-                  </div>
-                  <Badge variant="outline" className="border-gray-300 text-gray-600">
-                    Beginner
-                  </Badge>
-                </div>
+          {/* Workshop Timeline Design */}
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-red-200 via-red-400 to-red-600 rounded-full"></div>
+            
+            {/* Workshop Items */}
+            <div className="space-y-12 lg:space-y-16">
+              {/* 2-Day Workshop */}
+              <div className="relative flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <div className="lg:w-1/2 lg:pr-8">
+                  <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 group">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="p-3 rounded-xl bg-gradient-to-br from-red-50 to-red-100 border border-red-200">
+                        <Award className="w-8 h-8 text-red-600" />
+                      </div>
+                      <div>
+                        <Badge className="bg-red-100 text-red-700 border-red-200 px-3 py-1">
+                          Beginner Level
+                        </Badge>
+                        <h3 className="text-2xl font-bold text-gray-900 mt-2 group-hover:text-red-600 transition-colors">
+                          2-Day Intensive Workshop
+                        </h3>
+                      </div>
+                    </div>
 
-                <CardTitle className="text-xl text-gray-900 group-hover:text-red-600 transition-colors">
-                  2-Day Workshop
-                </CardTitle>
+                    <div className="flex items-center gap-6 mb-6 text-sm text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-5 h-5 text-red-500" />
+                        <span className="font-medium">2 Days</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Users className="w-5 h-5 text-red-500" />
+                        <span className="font-medium">20-30 Participants</span>
+                      </div>
+                    </div>
 
-                <div className="flex items-center gap-4 text-sm text-gray-600">
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    2 Days
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="w-4 h-4" />
-                    20-30
-                  </div>
-                </div>
-              </CardHeader>
+                    <div className="space-y-4 mb-8">
+                      <h4 className="text-lg font-semibold text-gray-900">What You'll Master:</h4>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {[
+                          "Ethical Hacking fundamentals",
+                          "Linux & Kali Lab setup",
+                          "Reconnaissance & vulnerability scanning",
+                          "Basic web attacks (SQL Injection, XSS)",
+                          "Password cracking techniques",
+                          "Social engineering basics"
+                        ].map((item, index) => (
+                          <div key={index} className="flex items-center gap-3">
+                            <div className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></div>
+                            <span className="text-gray-700 text-sm">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
 
-              <CardContent className="flex flex-col flex-grow">
-                <ul className="space-y-2 mb-6 flex-grow">
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Ethical Hacking fundamentals
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Linux & Kali Lab setup
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Reconnaissance & vulnerability scanning
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Basic web attacks (SQL Injection, XSS)
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Password cracking, social engineering
-                  </li>
-                </ul>
-
-              </CardContent>
-            </Card>
-
-            {/* 3-Day Workshop */}
-            <Card className="bg-white border-gray-200 hover:border-red-200 hover:shadow-lg transition-all duration-300 group relative flex flex-col h-full">
-              <CardHeader className="flex-shrink-0">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-2 rounded-lg bg-red-50 border border-red-100">
-                    <Award className="w-5 h-5 text-red-600" />
-                  </div>
-                  <Badge variant="outline" className="border-gray-300 text-gray-600">
-                    Intermediate
-                  </Badge>
-                </div>
-
-                <CardTitle className="text-xl text-gray-900 group-hover:text-red-600 transition-colors">
-                  3-Day Workshop
-                </CardTitle>
-
-                <div className="flex items-center gap-4 text-sm text-gray-600">
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    3 Days
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="w-4 h-4" />
-                    15-25
                   </div>
                 </div>
-              </CardHeader>
 
-              <CardContent className="flex flex-col flex-grow">
-                <ul className="space-y-2 mb-6 flex-grow">
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    OWASP Top 10 deep dive
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Reconnaissance, scanning & automation
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Directory brute-forcing (Gobuster)
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Burp Suite basics for web app testing
-                  </li>
-                </ul>
-
-              </CardContent>
-            </Card>
-
-            {/* 5-Day Workshop */}
-            <Card className="bg-white border-gray-200 hover:border-red-200 hover:shadow-lg transition-all duration-300 group relative flex flex-col h-full">
-
-              <CardHeader className="flex-shrink-0">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-2 rounded-lg bg-red-50 border border-red-100">
-                    <Award className="w-5 h-5 text-red-600" />
-                  </div>
-                  <Badge variant="outline" className="border-gray-300 text-gray-600">
-                    Advanced
-                  </Badge>
-                </div>
-
-                <CardTitle className="text-xl text-gray-900 group-hover:text-red-600 transition-colors">
-                  5-Day Workshop
-                </CardTitle>
-
-                <div className="flex items-center gap-4 text-sm text-gray-600">
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    5 Days
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="w-4 h-4" />
-                    10-20
+                <div className="lg:w-1/2 lg:pl-8">
+                  <div className="relative">
+                    <div className="relative bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 border border-red-200">
+                      <h4 className="text-xl font-bold text-gray-900 mb-4">Perfect For:</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700">Complete beginners in cybersecurity</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700">IT professionals exploring security</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700">Students and recent graduates</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </CardHeader>
+              </div>
 
-              <CardContent className="flex flex-col flex-grow">
-                <ul className="space-y-2 mb-6 flex-grow">
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Advanced web pentesting & exploit development
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Privilege escalation & bug bounty basics
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Real-time attack simulations
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    SOC overview & Incident response
-                  </li>
-                  <li className="text-sm text-gray-600 flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-red-600" />
-                    Capture The Flag (CTF) challenge
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+              {/* 3-Day Workshop */}
+              <div className="relative flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-12">
+                <div className="lg:w-1/2 lg:pl-8">
+                  <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 group">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="p-3 rounded-xl bg-gradient-to-br from-red-50 to-red-100 border border-red-200">
+                        <Award className="w-8 h-8 text-red-600" />
+                      </div>
+                      <div>
+                        <Badge className="bg-red-100 text-red-700 border-red-200 px-3 py-1">
+                          Intermediate Level
+                        </Badge>
+                        <h3 className="text-2xl font-bold text-gray-900 mt-2 group-hover:text-red-600 transition-colors">
+                          3-Day Advanced Workshop
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-6 mb-6 text-sm text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-5 h-5 text-red-500" />
+                        <span className="font-medium">3 Days</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Users className="w-5 h-5 text-red-500" />
+                        <span className="font-medium">15-25 Participants</span>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4 mb-8">
+                      <h4 className="text-lg font-semibold text-gray-900">Advanced Topics Covered:</h4>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {[
+                          "OWASP Top 10 deep dive",
+                          "Reconnaissance & automation",
+                          "Directory brute-forcing (Gobuster)",
+                          "Burp Suite web app testing",
+                          "Advanced vulnerability assessment",
+                          "Automated scanning tools"
+                        ].map((item, index) => (
+                          <div key={index} className="flex items-center gap-3">
+                            <div className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></div>
+                            <span className="text-gray-700 text-sm">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="lg:w-1/2 lg:pr-8">
+                  <div className="relative">
+                    <div className="relative bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 border border-red-200">
+                      <h4 className="text-xl font-bold text-gray-900 mb-4">Ideal For:</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700">Security professionals seeking advancement</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700">Web developers learning security</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700">Penetration testing enthusiasts</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 5-Day Workshop */}
+              <div className="relative flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <div className="lg:w-1/2 lg:pr-8">
+                  <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
+                    <div className="relative">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-red-50 to-red-100 border border-red-200">
+                          <Award className="w-8 h-8 text-red-600" />
+                        </div>
+                        <div>
+                          <Badge className="bg-red-100 text-red-700 border-red-200 px-3 py-1">
+                            Advanced Level
+                          </Badge>
+                          <h3 className="text-2xl font-bold text-gray-900 mt-2 group-hover:text-red-600 transition-colors">
+                            5-Day Expert Workshop
+                          </h3>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-6 mb-6 text-sm text-gray-600">
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-5 h-5 text-red-500" />
+                          <span className="font-medium">5 Days</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Users className="w-5 h-5 text-red-500" />
+                          <span className="font-medium">10-20 Participants</span>
+                        </div>
+                      </div>
+
+                      <div className="space-y-4 mb-8">
+                        <h4 className="text-lg font-semibold text-gray-900">Expert-Level Training:</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {[
+                            "Advanced web pentesting",
+                            "Exploit development",
+                            "Privilege escalation techniques",
+                            "Bug bounty methodologies",
+                            "Real-time attack simulations",
+                            "SOC & Incident response",
+                            "CTF challenges",
+                            "Professional reporting"
+                          ].map((item, index) => (
+                            <div key={index} className="flex items-center gap-3">
+                              <div className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></div>
+                              <span className="text-gray-700 text-sm">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:w-1/2 lg:pl-8">
+                  <div className="relative">
+                    <div className="relative bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 border border-red-200">
+                      <h4 className="text-xl font-bold text-gray-900 mb-4">Best For:</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700">Experienced security professionals</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700">Bug bounty hunters</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700">SOC analysts & incident responders</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -280,10 +357,17 @@ export default function LearnMorePage() {
               </div>
 
               <div className="flex gap-4">
-                <Button className="font-semibold bg-red-600 hover:bg-red-700 text-white px-8 py-3">
+                <Button 
+                  className="font-semibold bg-red-600 hover:bg-red-700 text-white px-8 py-3"
+                  onClick={() => window.open('/certificate/IOT.pdf', '_blank')}
+                >
                   View Sample Certificate
                 </Button>
-                <Button variant="outline" className="font-semibold border-gray-300 text-gray-700 px-8 py-3">
+                <Button 
+                  variant="outline" 
+                  className="font-semibold border-gray-300 text-gray-700 px-8 py-3"
+                  onClick={() => window.open('/certificate/IOT.pdf', '_blank')}
+                >
                   Download Brochure
                 </Button>
               </div>
@@ -425,14 +509,14 @@ export default function LearnMorePage() {
                           ))}
                         </div>
                         
-                        <div className="mt-auto">
+                        {/* <div className="mt-auto">
                           <Button 
                             variant="outline" 
                             className="w-full border-gray-300 text-gray-700 hover:bg-red-50 hover:border-red-200 hover:text-red-700 transition-all duration-200 font-medium"
                           >
                             View Details
                           </Button>
-                        </div>
+                        </div> */}
                       </CardContent>
                     </Card>
                   </CarouselItem>
@@ -612,7 +696,7 @@ export default function LearnMorePage() {
                     {resource.title}
                   </h3>
                   <p className="text-sm text-gray-600 mb-4">{resource.description}</p>
-                  <Button variant="outline" size="sm" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+                  <Button variant="outline" size="sm" className="border-gray-300 text-gray-700 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300">
                     Access Now
                   </Button>
                 </CardContent>
