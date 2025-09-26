@@ -198,76 +198,222 @@ export function TrainingPrograms() {
                 </div>
               </div>
             ) : category.category === "Bootcamps" ? (
-              <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 hover:border-red-200 hover:shadow-lg transition-all duration-300 mobile-card">
-                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
-                  <div className="space-y-4 sm:space-y-6">
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                      <div className="p-2 sm:p-3 rounded-lg bg-red-50 border border-red-100 flex-shrink-0">
-                        <Award className="w-5 h-5 sm:w-6 sm:h-6 red-accent" />
-                      </div>
-                      <div>
-                        <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mobile-heading">Comprehensive Bootcamp Programs</h4>
-                        <p className="text-sm sm:text-base text-gray-600 mobile-readable">Choose from 1-Week Intensive or 45-Day Professional Sprint</p>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-3 sm:space-y-4">
-                      <div className="space-y-3">
-                        <h5 className="font-semibold text-gray-900 text-base sm:text-lg">What You'll Master:</h5>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
-                          Our bootcamp programs are designed for rapid career transformation in cybersecurity. The 1-Week Intensive Bootcamp 
-                          covers core cybersecurity skills through practical labs, including networking fundamentals, web application testing, 
-                          system security, real-world attack scenarios, and industry certification preparation. Perfect for professionals looking 
-                          to quickly upskill or transition into cybersecurity.
-                        </p>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
-                          The HacFy CyberSprint is our flagship 45-day professional program structured in five comprehensive phases. Phase 1 
-                          (Days 1-10) covers core fundamentals, Phase 2 (Days 11-20) focuses on information gathering techniques, Phase 3 
-                          (Days 21-30) dives deep into web and system penetration testing, Phase 4 (Days 31-40) covers post-exploitation 
-                          strategies, and Phase 5 (Days 41-45) culminates with Capture The Flag challenges and professional reporting.
-                        </p>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
-                          Both programs feature hands-on labs, real-world scenarios, industry-standard tools, and mentorship from certified 
-                          cybersecurity professionals. Graduates receive industry-recognized certificates and career placement assistance.
-                        </p>
+                <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 hover:border-red-200 hover:shadow-lg transition-all duration-300 mobile-card">
+                  <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+                    {/* IMAGE LEFT */}
+                    <div className="flex justify-center">
+                      <div className="relative w-full max-w-sm sm:max-w-md h-64 sm:h-80 rounded-lg overflow-hidden shadow-xl">
+                        <Image
+                          src="/boot.png"
+                          alt="Cybersecurity Bootcamp Training"
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                        <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 text-white">
+                          <h4 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">Intensive Learning</h4>
+                          <p className="text-xs sm:text-sm opacity-90">Hands-on practical training</p>
+                        </div>
                       </div>
                     </div>
-                    
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                      <Button 
-                        onClick={handleLearnMore}
-                        className="w-full sm:w-auto font-semibold red-accent-bg hover:bg-red-700 text-white px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
-                      >
-                        View Bootcamp Details
-                      </Button>
-                      <Button 
-                        variant="outline"
-                        onClick={handleLearnMore}
-                        className="w-full sm:w-auto font-semibold border-gray-300 text-gray-700 px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
-                      >
-                        Download Syllabus
-                      </Button>
-                    </div>
-                  </div>
-                  
-                  <div className="flex justify-center order-first lg:order-last">
-                    <div className="relative w-full max-w-sm sm:max-w-md h-64 sm:h-80 rounded-lg overflow-hidden shadow-xl">
-                      <Image
-                        src="/boot.png"
-                        alt="Cybersecurity Bootcamp Training"
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                      <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 text-white">
-                        <h4 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">Intensive Learning</h4>
-                        <p className="text-xs sm:text-sm opacity-90">Hands-on practical training</p>
+              
+                    {/* CONTENT RIGHT */}
+                    <div className="space-y-4 sm:space-y-6">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div className="p-2 sm:p-3 rounded-lg bg-red-50 border border-red-100 flex-shrink-0">
+                          <Award className="w-5 h-5 sm:w-6 sm:h-6 red-accent" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mobile-heading">
+                            Comprehensive Bootcamp Programs
+                          </h4>
+                          <p className="text-sm sm:text-base text-gray-600 mobile-readable">
+                            Choose from 1-Week Intensive or 45-Day Professional Sprint
+                          </p>
+                        </div>
+                      </div>
+              
+                      <div className="space-y-3 sm:space-y-4">
+                        <div className="space-y-3">
+                          <h5 className="font-semibold text-gray-900 text-base sm:text-lg">What You'll Master:</h5>
+                          <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
+                            Our bootcamp programs are designed for rapid career transformation in cybersecurity. The 1-Week Intensive Bootcamp 
+                            covers core cybersecurity skills through practical labs, including networking fundamentals, web application testing, 
+                            system security, real-world attack scenarios, and industry certification preparation. Perfect for professionals looking 
+                            to quickly upskill or transition into cybersecurity.
+                          </p>
+                          <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
+                            The HacFy CyberSprint is our flagship 45-day professional program structured in five comprehensive phases. Phase 1 
+                            (Days 1-10) covers core fundamentals, Phase 2 (Days 11-20) focuses on information gathering techniques, Phase 3 
+                            (Days 21-30) dives deep into web and system penetration testing, Phase 4 (Days 31-40) covers post-exploitation 
+                            strategies, and Phase 5 (Days 41-45) culminates with Capture The Flag challenges and professional reporting.
+                          </p>
+                          <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
+                            Both programs feature hands-on labs, real-world scenarios, industry-standard tools, and mentorship from certified 
+                            cybersecurity professionals. Graduates receive industry-recognized certificates and career placement assistance.
+                          </p>
+                        </div>
+                      </div>
+              
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <Button 
+                          onClick={handleLearnMore}
+                          className="w-full sm:w-auto font-semibold red-accent-bg hover:bg-red-700 text-white px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
+                        >
+                          View Bootcamp Details
+                        </Button>
+                        <Button 
+                          variant="outline"
+                          onClick={handleLearnMore}
+                          className="w-full sm:w-auto font-semibold border-gray-300 text-gray-700 px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
+                        >
+                          Download Syllabus
+                        </Button>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ) : (
+              ) : category.category === "Specialized Programs" ? (
+                <div className="space-y-8 sm:space-y-12">
+                  {/* Internship Program Section */}
+                  <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 hover:border-red-200 hover:shadow-lg transition-all duration-300 mobile-card">
+                    <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+                      <div className="space-y-4 sm:space-y-6">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                          <div className="p-2 sm:p-3 rounded-lg bg-red-50 border border-red-100 flex-shrink-0">
+                            <Award className="w-5 h-5 sm:w-6 sm:h-6 red-accent" />
+                          </div>
+                          <div>
+                            <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mobile-heading">6-Month Internship Program</h4>
+                            <p className="text-sm sm:text-base text-gray-600 mobile-readable">Complete hands-on practical training with 1:1 mentorship</p>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-3 sm:space-y-4">
+                          <div className="space-y-3">
+                            <h5 className="font-semibold text-gray-900 text-base sm:text-lg">Program Overview:</h5>
+                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
+                              Our 6-month internship program is designed for career-ready individuals seeking comprehensive cybersecurity expertise. 
+                              This intensive program combines online and offline learning modes, providing complete hands-on practical training through 
+                              real-world projects, Capture The Flag (CTF) challenges, and professional reporting. With a small cohort of 5-10 participants, 
+                              each intern receives personalized 1:1 mentorship from certified cybersecurity experts.
+                            </p>
+                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
+                              The program culminates with Pre-Placement Offers (PPO) for top performers, ensuring direct career opportunities upon 
+                              successful completion. Interns work on live projects, participate in industry simulations, and develop professional 
+                              portfolios that showcase their practical skills to potential employers.
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                          <Button 
+                            onClick={() => router.push('/internship')}
+                            className="w-full sm:w-auto font-semibold red-accent-bg hover:bg-red-700 text-white px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
+                          >
+                            Apply for Internship
+                          </Button>
+                          <Button 
+                            variant="outline"
+                            onClick={handleLearnMore}
+                            className="w-full sm:w-auto font-semibold border-gray-300 text-gray-700 px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
+                          >
+                            Download Brochure
+                          </Button>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-center order-first lg:order-last">
+                        <div className="relative w-full max-w-sm sm:max-w-md h-64 sm:h-80 rounded-lg overflow-hidden">
+                          <Image
+                            src="/training.png"
+                            alt="Cybersecurity Internship Program"
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Corporate Training Section */}
+                  <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 hover:border-red-200 hover:shadow-lg transition-all duration-300 mobile-card">
+                    <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+                      {/* IMAGE LEFT */}
+                      <div className="flex justify-center">
+                        <div className="relative w-full max-w-sm sm:max-w-md h-64 sm:h-80 rounded-lg overflow-hidden shadow-xl">
+                          <Image
+                            src="/expert.png"
+                            alt="Corporate Cybersecurity Training"
+                            fill
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                          <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 text-white">
+                            <h4 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">Enterprise Training</h4>
+                            <p className="text-xs sm:text-sm opacity-90">Customized workforce solutions</p>
+                          </div>
+                        </div>
+                      </div>
+                
+                      {/* CONTENT RIGHT */}
+                      <div className="space-y-4 sm:space-y-6">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                          <div className="p-2 sm:p-3 rounded-lg bg-red-50 border border-red-100 flex-shrink-0">
+                            <Award className="w-5 h-5 sm:w-6 sm:h-6 red-accent" />
+                          </div>
+                          <div>
+                            <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mobile-heading">
+                              Corporate Training Solutions
+                            </h4>
+                            <p className="text-sm sm:text-base text-gray-600 mobile-readable">
+                              Customized & scalable training for organizations of all sizes
+                            </p>
+                          </div>
+                        </div>
+                
+                        <div className="space-y-3 sm:space-y-4">
+                          <div className="space-y-3">
+                            <h5 className="font-semibold text-gray-900 text-base sm:text-lg">Enterprise Protection:</h5>
+                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
+                              Our corporate training programs are designed to strengthen your organization's cybersecurity posture through 
+                              comprehensive workforce education. We offer customized training solutions that scale from 20 to 100+ employees, 
+                              covering threat landscape awareness, human layer protection, incident response, and recovery strategies.
+                            </p>
+                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
+                              Our training modules include phishing simulation exercises, social engineering awareness, secure coding practices, 
+                              network security fundamentals, and incident response procedures. Each program is tailored to your industry, 
+                              compliance requirements, and specific security challenges.
+                            </p>
+                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed mobile-readable">
+                              We provide flexible delivery options including on-site training, virtual sessions, and hybrid approaches. 
+                              Our expert instructors work closely with your IT and HR teams to ensure maximum engagement and practical 
+                              application of learned concepts.
+                            </p>
+                          </div>
+                        </div>
+                
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                          <Button 
+                            onClick={handleLearnMore}
+                            className="w-full sm:w-auto font-semibold red-accent-bg hover:bg-red-700 text-white px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
+                          >
+                            Request Quote
+                          </Button>
+                          <Button 
+                            variant="outline"
+                            onClick={handleLearnMore}
+                            className="w-full sm:w-auto font-semibold border-gray-300 text-gray-700 px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
+                          >
+                            View Case Studies
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+    
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {category.programs.map((program, programIndex) => (
                   <Card

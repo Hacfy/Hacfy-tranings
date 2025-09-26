@@ -4,13 +4,6 @@ import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
 import { motion } from "framer-motion"
 import { 
   Award, 
@@ -109,25 +102,26 @@ export default function InternshipPage() {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {/* Program Highlights */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="h-full"
             >
-              <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group mobile-card h-96 flex flex-col">
-                <CardHeader className="p-4 sm:p-6 flex-shrink-0">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-3 rounded-lg bg-gradient-to-br from-red-50 to-red-100 border border-red-200 shadow-lg">
-                      <Trophy className="w-6 h-6 text-red-600" />
+              <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group mobile-card h-full flex flex-col">
+                <CardHeader className="p-3 sm:p-4 flex-shrink-0">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-red-50 to-red-100 border border-red-200 shadow-lg">
+                      <Trophy className="w-5 h-5 text-red-600" />
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mobile-heading group-hover:text-red-600 transition-colors">Program Highlights</h3>
                   </div>
                 </CardHeader>
-                <CardContent className="p-4 sm:p-6 pt-0 flex-1 overflow-hidden">
-                  <div className="space-y-2 h-full overflow-y-auto">
+                <CardContent className="p-3 sm:p-4 pt-0 flex-1 flex flex-col">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 flex-1">
                     {[
                       { icon: Clock, text: "6 Months Intensive Training" },
                       { icon: Users, text: "5-10 Students per Batch" },
@@ -138,16 +132,16 @@ export default function InternshipPage() {
                     ].map((item, index) => (
                       <motion.div 
                         key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1, duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="flex items-center gap-3 group/item py-1"
+                        className="flex items-center gap-2 group/item p-2 rounded-lg hover:bg-red-50 transition-colors"
                       >
                         <div className="p-1 rounded-full bg-red-100 group-hover/item:bg-red-200 transition-colors flex-shrink-0">
                           <item.icon className="w-3 h-3 text-red-600" />
                         </div>
-                        <span className="text-gray-700 font-medium text-xs sm:text-sm mobile-readable group-hover/item:text-red-600 transition-colors">{item.text}</span>
+                        <span className="text-gray-700 font-medium text-sm mobile-readable group-hover/item:text-red-600 transition-colors">{item.text}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -161,18 +155,19 @@ export default function InternshipPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="h-full"
             >
-              <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group mobile-card h-96 flex flex-col">
-                <CardHeader className="p-4 sm:p-6 flex-shrink-0">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-3 rounded-lg bg-gradient-to-br from-red-50 to-red-100 border border-red-200 shadow-lg">
-                      <Calendar className="w-6 h-6 text-red-600" />
+              <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group mobile-card h-full flex flex-col">
+                <CardHeader className="p-3 sm:p-4 flex-shrink-0">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-red-50 to-red-100 border border-red-200 shadow-lg">
+                      <Calendar className="w-5 h-5 text-red-600" />
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mobile-heading group-hover:text-red-600 transition-colors">6-Month Timeline</h3>
                   </div>
                 </CardHeader>
-                <CardContent className="p-4 sm:p-6 pt-0 flex-1 overflow-hidden">
-                  <div className="space-y-3 h-full overflow-y-auto">
+                <CardContent className="p-3 sm:p-4 pt-0 flex-1 flex flex-col">
+                  <div className="space-y-2 flex-1">
                     {[
                       { color: "bg-red-600", title: "Month 1-2: Foundation Building", desc: "Core cybersecurity concepts and tool mastery" },
                       { color: "bg-red-500", title: "Month 3-4: Practical Application", desc: "Real-world projects and vulnerability assessments" },
@@ -181,16 +176,16 @@ export default function InternshipPage() {
                     ].map((phase, index) => (
                       <motion.div 
                         key={index}
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1, duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="flex items-start gap-3 group/phase py-1"
+                        className="flex items-start gap-3 group/phase p-2 rounded-lg hover:bg-red-50 transition-colors"
                       >
-                        <div className={`w-2 h-2 rounded-full ${phase.color} mt-2 flex-shrink-0 group-hover/phase:scale-125 transition-transform duration-300`}></div>
+                        <div className={`w-3 h-3 rounded-full ${phase.color} mt-1.5 flex-shrink-0 group-hover/phase:scale-125 transition-transform duration-300`}></div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-gray-900 text-xs sm:text-sm mobile-heading group-hover/phase:text-red-600 transition-colors">{phase.title}</h4>
-                          <p className="text-xs text-gray-600 mobile-readable">{phase.desc}</p>
+                          <h4 className="font-semibold text-gray-900 text-sm mobile-heading group-hover/phase:text-red-600 transition-colors mb-0.5">{phase.title}</h4>
+                          <p className="text-sm text-gray-600 mobile-readable">{phase.desc}</p>
                         </div>
                       </motion.div>
                     ))}
@@ -354,32 +349,32 @@ export default function InternshipPage() {
                 transition={{ delay: index * 0.2, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group mobile-card h-80 flex flex-col">
-                  <CardContent className="p-4 sm:p-6 flex flex-col h-full">
-                    <div className={`p-3 rounded-full bg-gradient-to-br from-red-50 to-red-100 border border-red-200 w-12 h-12 mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:shadow-red-200/50 transition-all duration-300 flex-shrink-0`}>
+                <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group mobile-card">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className={`p-3 rounded-full bg-gradient-to-br from-red-50 to-red-100 border border-red-200 w-12 h-12 mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:shadow-red-200/50 transition-all duration-300`}>
                       <training.icon className="w-6 h-6 text-red-600 group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                    <h3 className="text-base sm:text-lg font-semibold mb-2 text-gray-900 group-hover:text-red-600 transition-colors text-center mobile-heading flex-shrink-0">
+                    <h3 className="text-base sm:text-lg font-semibold mb-3 text-gray-900 group-hover:text-red-600 transition-colors text-center mobile-heading">
                       {training.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-gray-600 mb-3 text-center mobile-readable flex-shrink-0">{training.description}</p>
-                    <ul className="space-y-1 flex-1 overflow-y-auto">
+                    <p className="text-sm text-gray-600 mb-4 text-center mobile-readable">{training.description}</p>
+                    <div className="grid grid-cols-1 gap-2">
                       {training.features.map((feature, featureIndex) => (
-                        <motion.li 
+                        <motion.div 
                           key={featureIndex} 
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
+                          initial={{ opacity: 0, y: 5 }}
+                          whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: featureIndex * 0.1, duration: 0.4 }}
                           viewport={{ once: true }}
-                          className="flex items-center gap-2 text-xs text-gray-600 mobile-readable group/item py-1"
+                          className="flex items-center gap-3 text-sm text-gray-600 mobile-readable group/item p-2 rounded-lg hover:bg-red-50 transition-colors"
                         >
                           <div className="p-1 rounded-full bg-red-100 group-hover/item:bg-red-200 transition-colors flex-shrink-0">
-                            <CheckCircle className="w-2 h-2 text-red-500 flex-shrink-0" />
+                            <CheckCircle className="w-3 h-3 text-red-500" />
                           </div>
                           <span className="group-hover/item:text-red-600 transition-colors">{feature}</span>
-                        </motion.li>
+                        </motion.div>
                       ))}
-                    </ul>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -413,15 +408,15 @@ export default function InternshipPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group mobile-card h-96 flex flex-col">
-                <CardContent className="p-4 sm:p-6 flex flex-col h-full">
-                  <div className="flex items-center gap-3 mb-3 flex-shrink-0">
+              <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group mobile-card">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="p-2 rounded-lg bg-gradient-to-br from-red-50 to-red-100 border border-red-200 shadow-lg group-hover:shadow-red-200/50 transition-all duration-300">
                       <Monitor className="w-6 h-6 text-red-600 group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mobile-heading group-hover:text-red-600 transition-colors">Online Mode</h3>
                   </div>
-                  <ul className="space-y-2 mb-4 flex-1 overflow-y-auto">
+                  <div className="space-y-3 mb-6">
                     {[
                       "Live interactive sessions with experts",
                       "Access to virtual labs and environments",
@@ -429,22 +424,22 @@ export default function InternshipPage() {
                       "Online collaboration tools",
                       "Flexible schedule options"
                     ].map((feature, index) => (
-                      <motion.li 
+                      <motion.div 
                         key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 5 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1, duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="flex items-center gap-3 text-gray-600 mobile-readable group/item py-1"
+                        className="flex items-center gap-3 text-gray-600 mobile-readable group/item p-2 rounded-lg hover:bg-red-50 transition-colors"
                       >
                         <div className="p-1 rounded-full bg-red-100 group-hover/item:bg-red-200 transition-colors flex-shrink-0">
-                          <CheckCircle className="w-3 h-3 text-red-500 flex-shrink-0" />
+                          <CheckCircle className="w-3 h-3 text-red-500" />
                         </div>
-                        <span className="text-xs sm:text-sm group-hover/item:text-red-600 transition-colors">{feature}</span>
-                      </motion.li>
+                        <span className="text-sm group-hover/item:text-red-600 transition-colors">{feature}</span>
+                      </motion.div>
                     ))}
-                  </ul>
-                  <Button className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold py-2 sm:py-3 mobile-button mobile-touch-target shadow-lg hover:shadow-red-500/25 transition-all duration-300 flex-shrink-0">
+                  </div>
+                  <Button className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold py-2 sm:py-3 mobile-button mobile-touch-target shadow-lg hover:shadow-red-500/25 transition-all duration-300">
                     Choose Online Mode
                   </Button>
                 </CardContent>
@@ -457,15 +452,15 @@ export default function InternshipPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-gray-500/10 transition-all duration-500 group mobile-card h-96 flex flex-col">
-                <CardContent className="p-4 sm:p-6 flex flex-col h-full">
-                  <div className="flex items-center gap-3 mb-3 flex-shrink-0">
+              <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-gray-500/10 transition-all duration-500 group mobile-card">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="p-2 rounded-lg bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 shadow-lg group-hover:shadow-gray-200/50 transition-all duration-300">
                       <Building2 className="w-6 h-6 text-gray-600 group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mobile-heading group-hover:text-gray-600 transition-colors">Offline Mode</h3>
                   </div>
-                  <ul className="space-y-2 mb-4 flex-1 overflow-y-auto">
+                  <div className="space-y-3 mb-6">
                     {[
                       "In-person training sessions",
                       "Physical lab access and equipment",
@@ -473,22 +468,22 @@ export default function InternshipPage() {
                       "Networking with peers",
                       "Hands-on hardware experience"
                     ].map((feature, index) => (
-                      <motion.li 
+                      <motion.div 
                         key={index}
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 5 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1, duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="flex items-center gap-3 text-gray-600 mobile-readable group/item py-1"
+                        className="flex items-center gap-3 text-gray-600 mobile-readable group/item p-2 rounded-lg hover:bg-gray-50 transition-colors"
                       >
                         <div className="p-1 rounded-full bg-gray-100 group-hover/item:bg-gray-200 transition-colors flex-shrink-0">
-                          <CheckCircle className="w-3 h-3 text-gray-500 flex-shrink-0" />
+                          <CheckCircle className="w-3 h-3 text-gray-500" />
                         </div>
-                        <span className="text-xs sm:text-sm group-hover/item:text-gray-700 transition-colors">{feature}</span>
-                      </motion.li>
+                        <span className="text-sm group-hover/item:text-gray-700 transition-colors">{feature}</span>
+                      </motion.div>
                     ))}
-                  </ul>
-                  <Button className="w-full bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white font-semibold py-2 sm:py-3 mobile-button mobile-touch-target shadow-lg hover:shadow-gray-500/25 transition-all duration-300 flex-shrink-0">
+                  </div>
+                  <Button className="w-full bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white font-semibold py-2 sm:py-3 mobile-button mobile-touch-target shadow-lg hover:shadow-gray-500/25 transition-all duration-300">
                     Choose Offline Mode
                   </Button>
                 </CardContent>
@@ -516,94 +511,96 @@ export default function InternshipPage() {
             </p>
           </motion.div>
 
-          <div className="relative">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {[
-                  {
-                    name: "Alex Thompson",
-                    role: "Security Analyst at CyberCorp",
-                    image: "/placeholder-user.jpg",
-                    quote: "The 6-month internship gave me real-world experience I couldn't get anywhere else. The 1:1 mentorship was invaluable!",
-                    rating: 5,
-                    company: "CyberCorp"
-                  },
-                  {
-                    name: "Maria Rodriguez",
-                    role: "Penetration Tester at SecureTech",
-                    image: "/placeholder-user.jpg",
-                    quote: "I went from zero cybersecurity knowledge to getting a great job. The hands-on projects and CTF competitions were game-changers.",
-                    rating: 5,
-                    company: "SecureTech"
-                  },
-                  {
-                    name: "James Chen",
-                    role: "SOC Analyst at DataGuard",
-                    image: "/placeholder-user.jpg",
-                    quote: "The combination of online and offline modes worked perfectly for my schedule. The mentor support was exceptional.",
-                    rating: 5,
-                    company: "DataGuard"
-                  },
-                  {
-                    name: "Sarah Johnson",
-                    role: "Security Consultant at InfoSec Pro",
-                    image: "/placeholder-user.jpg",
-                    quote: "The real-world projects and professional reporting training prepared me for immediate success in my role.",
-                    rating: 5,
-                    company: "InfoSec Pro"
-                  }
-                ].map((story, index) => (
-                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1, duration: 0.6 }}
-                      viewport={{ once: true }}
-                    >
-                      <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group h-80 flex flex-col mobile-card">
-                        <CardContent className="p-4 sm:p-6 flex flex-col h-full">
-                          <div className="flex items-center gap-1 mb-3 flex-shrink-0">
-                            {[...Array(story.rating)].map((_, i) => (
-                              <Star key={i} className="w-3 h-3 text-red-500 fill-current group-hover:scale-110 transition-transform duration-300" />
-                            ))}
-                          </div>
-                          
-                          <blockquote className="text-gray-600 mb-4 flex-1 italic text-xs sm:text-sm mobile-readable group-hover:text-gray-700 transition-colors overflow-hidden">
-                            "{story.quote}"
-                          </blockquote>
-                          
-                          <div className="flex items-center gap-3 mb-2 flex-shrink-0">
-                            <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-red-100 group-hover:ring-red-200 transition-all duration-300">
-                              <Image
-                                src={story.image}
-                                alt={story.name}
-                                width={32}
-                                height={32}
-                                className="object-cover group-hover:scale-110 transition-transform duration-300"
-                              />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-semibold text-gray-900 text-xs sm:text-sm mobile-heading group-hover:text-red-600 transition-colors truncate">{story.name}</h4>
-                              <p className="text-xs text-gray-600 mobile-readable truncate">{story.role}</p>
-                              <p className="text-xs text-gray-500 mobile-readable truncate">{story.company}</p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              
-              <CarouselPrevious className="hidden md:flex -left-12 bg-white border-gray-300 hover:bg-gray-50 shadow-lg hover:shadow-red-500/10 transition-all duration-300" />
-              <CarouselNext className="hidden md:flex -right-12 bg-white border-gray-300 hover:bg-gray-50 shadow-lg hover:shadow-red-500/10 transition-all duration-300" />
-            </Carousel>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              {
+                name: "Alex Thompson",
+                role: "Security Analyst at CyberCorp",
+                image: "/placeholder-user.jpg",
+                quote: "The 6-month internship gave me real-world experience I couldn't get anywhere else. The 1:1 mentorship was invaluable!",
+                rating: 5,
+                company: "CyberCorp"
+              },
+              {
+                name: "Maria Rodriguez",
+                role: "Penetration Tester at SecureTech",
+                image: "/placeholder-user.jpg",
+                quote: "I went from zero cybersecurity knowledge to getting a great job. The hands-on projects and CTF competitions were game-changers.",
+                rating: 5,
+                company: "SecureTech"
+              },
+              {
+                name: "James Chen",
+                role: "SOC Analyst at DataGuard",
+                image: "/placeholder-user.jpg",
+                quote: "The combination of online and offline modes worked perfectly for my schedule. The mentor support was exceptional.",
+                rating: 5,
+                company: "DataGuard"
+              },
+              {
+                name: "Sarah Johnson",
+                role: "Security Consultant at InfoSec Pro",
+                image: "/placeholder-user.jpg",
+                quote: "The real-world projects and professional reporting training prepared me for immediate success in my role.",
+                rating: 5,
+                company: "InfoSec Pro"
+              },
+              {
+                name: "David Wilson",
+                role: "Cybersecurity Specialist at TechSecure",
+                image: "/placeholder-user.jpg",
+                quote: "The comprehensive training and hands-on experience gave me the confidence to excel in my cybersecurity career.",
+                rating: 5,
+                company: "TechSecure"
+              },
+              {
+                name: "Lisa Chen",
+                role: "Incident Response Analyst at SecureFlow",
+                image: "/placeholder-user.jpg",
+                quote: "The practical approach and real-world scenarios prepared me perfectly for handling security incidents professionally.",
+                rating: 5,
+                company: "SecureFlow"
+              }
+            ].map((story, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <Card className="bg-white border-gray-200 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group mobile-card">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex items-center gap-1 mb-3">
+                      {[...Array(story.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-red-500 fill-current group-hover:scale-110 transition-transform duration-300" />
+                      ))}
+                    </div>
+                    
+                    <blockquote className="text-gray-600 mb-4 italic text-sm mobile-readable group-hover:text-gray-700 transition-colors">
+                      "{story.quote}"
+                    </blockquote>
+                    
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-red-100 group-hover:ring-red-200 transition-all duration-300">
+                        <Image
+                          src={story.image}
+                          alt={story.name}
+                          width={40}
+                          height={40}
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-gray-900 text-sm mobile-heading group-hover:text-red-600 transition-colors">{story.name}</h4>
+                        <p className="text-sm text-gray-600 mobile-readable">{story.role}</p>
+                        <p className="text-xs text-gray-500 mobile-readable">{story.company}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
