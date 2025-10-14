@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
+import { Navigation } from "@/components/navigation"
 import { 
   Award, 
   Users, 
@@ -41,8 +42,9 @@ import {
 
 export default function InternshipPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#0B0F1A] text-white">
       {/* Hero Section */}
+      <Navigation/>
       <section className="relative py-20 px-4 bg-gradient-to-br from-black via-gray-900 to-gray-800">
 
         <div className="max-w-7xl mx-auto relative z-10">

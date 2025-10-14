@@ -22,6 +22,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
+import Link from "next/link"
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -119,12 +120,14 @@ export default function RegisterPage() {
               >
                 Register for Another Program
               </Button>
-              <Button
-                variant="outline"
-                className="border-2 border-gray-200 hover:border-[rgba(218,21,21,0.952)] text-gray-700 hover:text-[rgba(218,21,21,0.952)] px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 bg-transparent"
-              >
-                Back to Home
-              </Button>
+              <Link href="/" passHref>
+                <Button
+                  variant="outline"
+                  className="border-2 border-gray-200 hover:border-[rgba(218,21,21,0.952)] text-gray-700 hover:text-[rgba(218,21,21,0.952)] px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 bg-transparent"
+                >
+                  Back to Home
+                </Button>
+              </Link>
             </div>
           </CardContent>
         </Card>
@@ -261,9 +264,8 @@ export default function RegisterPage() {
                       id="fullName"
                       value={formData.fullName}
                       onChange={(e) => setFormData((prev) => ({ ...prev, fullName: e.target.value }))}
-                      className={`h-14 text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white ${
-                        errors.fullName ? "border-red-500" : "border-gray-200"
-                      }`}
+                      className={`h-14 text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white ${errors.fullName ? "border-red-500" : "border-gray-200"
+                        }`}
                       placeholder="Enter your full name"
                     />
                     {errors.fullName && <p className="text-red-500 text-sm font-semibold">{errors.fullName}</p>}
@@ -278,9 +280,8 @@ export default function RegisterPage() {
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                      className={`h-14 text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white ${
-                        errors.email ? "border-red-500" : "border-gray-200"
-                      }`}
+                      className={`h-14 text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white ${errors.email ? "border-red-500" : "border-gray-200"
+                        }`}
                       placeholder="Enter your email address"
                     />
                     {errors.email && <p className="text-red-500 text-sm font-semibold">{errors.email}</p>}
@@ -296,9 +297,8 @@ export default function RegisterPage() {
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
-                      className={`h-14 text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white ${
-                        errors.phone ? "border-red-500" : "border-gray-200"
-                      }`}
+                      className={`h-14 text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white ${errors.phone ? "border-red-500" : "border-gray-200"
+                        }`}
                       placeholder="Enter your phone number"
                     />
                     {errors.phone && <p className="text-red-500 text-sm font-semibold">{errors.phone}</p>}
@@ -313,9 +313,8 @@ export default function RegisterPage() {
                       onValueChange={(value) => setFormData((prev) => ({ ...prev, program: value }))}
                     >
                       <SelectTrigger
-                        className={`h-14 text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white ${
-                          errors.program ? "border-red-500" : "border-gray-200"
-                        }`}
+                        className={`h-14 text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white ${errors.program ? "border-red-500" : "border-gray-200"
+                          }`}
                       >
                         <SelectValue placeholder="Select your preferred training program" />
                       </SelectTrigger>
@@ -353,9 +352,8 @@ export default function RegisterPage() {
                     onValueChange={(value) => setFormData((prev) => ({ ...prev, experience: value }))}
                   >
                     <SelectTrigger
-                      className={`h-14 text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white ${
-                        errors.experience ? "border-red-500" : "border-gray-200"
-                      }`}
+                      className={`h-14 text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white ${errors.experience ? "border-red-500" : "border-gray-200"
+                        }`}
                     >
                       <SelectValue placeholder="Select your current experience level" />
                     </SelectTrigger>
@@ -385,9 +383,8 @@ export default function RegisterPage() {
                     id="goals"
                     value={formData.goals}
                     onChange={(e) => setFormData((prev) => ({ ...prev, goals: e.target.value }))}
-                    className={`min-h-[140px] text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white resize-none ${
-                      errors.goals ? "border-red-500" : "border-gray-200"
-                    }`}
+                    className={`min-h-[140px] text-lg border-2 focus:border-[rgba(218,21,21,0.952)] focus:ring-4 focus:ring-[rgba(218,21,21,0.1)] transition-all duration-300 rounded-xl bg-gray-50 focus:bg-white resize-none ${errors.goals ? "border-red-500" : "border-gray-200"
+                      }`}
                     placeholder="Tell us about your career goals and what you want to achieve from this training program..."
                   />
                   {errors.goals && <p className="text-red-500 text-sm font-semibold">{errors.goals}</p>}

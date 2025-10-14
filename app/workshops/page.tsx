@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Navigation } from "@/components/navigation"
 import { 
   Carousel,
   CarouselContent,
@@ -32,6 +33,7 @@ import {
 export default function LearnMorePage() {
   return (
     <div className="min-h-screen bg-white">
+      <Navigation/>
       {/* Hero Section */}
       <section className="relative py-20 px-4 bg-gradient-to-b from-gray-950 via-gray-900 to-black">
         <div className="max-w-7xl mx-auto">
@@ -394,7 +396,7 @@ export default function LearnMorePage() {
       </section>
 
       {/* Past Training Events Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      {/* <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
@@ -509,14 +511,14 @@ export default function LearnMorePage() {
                           ))}
                         </div>
                         
-                        {/* <div className="mt-auto">
+                        <div className="mt-auto">
                           <Button 
                             variant="outline" 
                             className="w-full border-gray-300 text-gray-700 hover:bg-red-50 hover:border-red-200 hover:text-red-700 transition-all duration-200 font-medium"
                           >
                             View Details
                           </Button>
-                        </div> */}
+                        </div>
                       </CardContent>
                     </Card>
                   </CarouselItem>
@@ -525,10 +527,10 @@ export default function LearnMorePage() {
               
               <CarouselPrevious className="hidden md:flex -left-12 bg-white border-gray-300 hover:bg-gray-50 shadow-lg" />
               <CarouselNext className="hidden md:flex -right-12 bg-white border-gray-300 hover:bg-gray-50 shadow-lg" />
-            </Carousel>
+            </Carousel> */}
             
             {/* Mobile navigation dots */}
-            <div className="flex justify-center mt-8 md:hidden">
+            {/* <div className="flex justify-center mt-8 md:hidden">
               <div className="flex space-x-2">
                 {[0, 1, 2].map((_, index) => (
                   <div
@@ -540,7 +542,7 @@ export default function LearnMorePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Immersive Training Section */}
       <section className="py-20 px-4 bg-white">

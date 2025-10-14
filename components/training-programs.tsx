@@ -267,7 +267,7 @@ export function TrainingPrograms() {
                           onClick={handleLearnMore}
                           className="w-full sm:w-auto font-semibold border-gray-300 text-gray-700 px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target"
                         >
-                          Download Syllabus
+                          Syllabus
                         </Button>
                       </div>
                     </div>

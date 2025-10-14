@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Navigation } from "@/components/navigation"
 import { 
   Carousel,
   CarouselContent,
@@ -42,6 +43,7 @@ export default function BootcampsPage() {
   const [activeProgram, setActiveProgram] = useState<'intensive' | 'cybersprint'>('intensive')
   return (
     <div className="min-h-screen bg-white">
+      <Navigation/>
       {/* Hero Section */}
       <section className="relative py-20 px-4 bg-gradient-to-b from-gray-950 via-gray-900 to-black">
         <div className="max-w-7xl mx-auto">
