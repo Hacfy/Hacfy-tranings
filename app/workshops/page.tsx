@@ -5,22 +5,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
-import { 
+import Link from "next/link"
+import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { 
-  Award, 
-  Users, 
-  Clock, 
-  CheckCircle, 
-  Star, 
-  Shield, 
-  Target, 
-  BookOpen, 
+import {
+  Award,
+  Users,
+  Clock,
+  CheckCircle,
+  Star,
+  Shield,
+  Target,
+  BookOpen,
   Laptop,
   Trophy,
   Calendar,
@@ -33,17 +34,17 @@ import {
 export default function LearnMorePage() {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation/>
+      <Navigation />
       {/* Hero Section */}
       <section className="relative py-20 px-4 bg-gradient-to-b from-gray-950 via-gray-900 to-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance text-white">
-              Join Our Hands on <span className="text-red-600">Workshops</span> 
+              Join Our Hands on <span className="text-red-600">Workshops</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto text-balance leading-relaxed">
-                Learn by doing through interactive workshops designed to build real skills. 
-              Guided by experts, you’ll tackle practical challenges, collaborate with peers, 
+              Learn by doing through interactive workshops designed to build real skills.
+              Guided by experts, you’ll tackle practical challenges, collaborate with peers,
               and gain knowledge you can immediately apply in real-world scenarios.
             </p>
           </div>
@@ -66,7 +67,7 @@ export default function LearnMorePage() {
           <div className="relative">
             {/* Timeline Line */}
             <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-red-200 via-red-400 to-red-600 rounded-full"></div>
-            
+
             {/* Workshop Items */}
             <div className="space-y-12 lg:space-y-16">
               {/* 2-Day Workshop */}
@@ -359,14 +360,14 @@ export default function LearnMorePage() {
               </div>
 
               <div className="flex gap-4">
-                <Button 
+                <Button
                   className="font-semibold bg-red-600 hover:bg-red-700 text-white px-8 py-3"
                   onClick={() => window.open('/certificate/IOT.pdf', '_blank')}
                 >
                   View Sample Certificate
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="font-semibold border-gray-300 text-gray-700 px-8 py-3"
                   onClick={() => window.open('/certificate/IOT.pdf', '_blank')}
                 >
@@ -394,155 +395,6 @@ export default function LearnMorePage() {
           </div>
         </div>
       </section>
-
-      {/* Past Training Events Section */}
-      {/* <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              Past Training Events
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover our successful training programs and see the impact we've made in the cybersecurity community.
-            </p>
-          </div>
-
-          <div className="relative">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {[
-                  {
-                    title: "Cybersecurity Fundamentals Workshop",
-                    date: "March 2024",
-                    location: "Bangalore",
-                    participants: 45,
-                    rating: 4.9,
-                    image: "/training.png",
-                    highlights: ["Ethical Hacking Basics", "Network Security", "Hands-on Labs"]
-                  },
-                  {
-                    title: "Advanced Penetration Testing",
-                    date: "April 2024",
-                    location: "Mumbai",
-                    participants: 32,
-                    rating: 4.8,
-                    image: "/training.png",
-                    highlights: ["Web App Testing", "Exploit Development", "CTF Challenges"]
-                  },
-                  {
-                    title: "SOC Analyst Training",
-                    date: "May 2024",
-                    location: "Delhi",
-                    participants: 28,
-                    rating: 4.9,
-                    image: "/training.png",
-                    highlights: ["Incident Response", "SIEM Tools", "Threat Hunting"]
-                  },
-                  {
-                    title: "Cloud Security Workshop",
-                    date: "June 2024",
-                    location: "Chennai",
-                    participants: 38,
-                    rating: 4.7,
-                    image: "/training.png",
-                    highlights: ["AWS Security", "Azure Security", "Cloud Pentesting"]
-                  },
-                  {
-                    title: "Mobile Security Training",
-                    date: "July 2024",
-                    location: "Pune",
-                    participants: 25,
-                    rating: 4.8,
-                    image: "/training.png",
-                    highlights: ["Android Security", "iOS Security", "Mobile Pentesting"]
-                  }
-                ].map((event, index) => (
-                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <Card className="bg-white border-gray-200 hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
-                      <div className="relative h-56 overflow-hidden rounded-t-lg">
-                        <Image
-                          src={event.image}
-                          alt={event.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute top-4 right-4">
-                          <Badge className="bg-red-600 text-white shadow-lg">Featured</Badge>
-                        </div>
-                        <div className="absolute bottom-4 left-4">
-                          <div className="flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
-                            <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                            <span className="text-sm font-medium text-gray-900">{event.rating}</span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <CardContent className="p-6 flex flex-col flex-grow">
-                        <div className="flex items-center gap-2 mb-3 text-sm text-gray-500">
-                          <Calendar className="w-4 h-4" />
-                          <span>{event.date}</span>
-                          <MapPin className="w-4 h-4 ml-2" />
-                          <span>{event.location}</span>
-                        </div>
-                        
-                        <h3 className="text-lg font-semibold mb-3 text-gray-900 group-hover:text-red-600 transition-colors line-clamp-2">
-                          {event.title}
-                        </h3>
-                        
-                        <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
-                          <div className="flex items-center gap-1">
-                            <Users className="w-4 h-4" />
-                            <span>{event.participants} participants</span>
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-2 mb-6 flex-grow">
-                          {event.highlights.map((highlight, idx) => (
-                            <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                              <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                              <span className="line-clamp-1">{highlight}</span>
-                            </div>
-                          ))}
-                        </div>
-                        
-                        <div className="mt-auto">
-                          <Button 
-                            variant="outline" 
-                            className="w-full border-gray-300 text-gray-700 hover:bg-red-50 hover:border-red-200 hover:text-red-700 transition-all duration-200 font-medium"
-                          >
-                            View Details
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              
-              <CarouselPrevious className="hidden md:flex -left-12 bg-white border-gray-300 hover:bg-gray-50 shadow-lg" />
-              <CarouselNext className="hidden md:flex -right-12 bg-white border-gray-300 hover:bg-gray-50 shadow-lg" />
-            </Carousel> */}
-            
-            {/* Mobile navigation dots */}
-            {/* <div className="flex justify-center mt-8 md:hidden">
-              <div className="flex space-x-2">
-                {[0, 1, 2].map((_, index) => (
-                  <div
-                    key={index}
-                    className="w-2 h-2 rounded-full bg-gray-300"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Immersive Training Section */}
       <section className="py-20 px-4 bg-white">
@@ -713,13 +565,15 @@ export default function LearnMorePage() {
                   Ready to Start Your Cybersecurity Journey?
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Join thousands of professionals who have transformed their careers with our expert-led training programs. 
+                  Join thousands of professionals who have transformed their careers with our expert-led training programs.
                   Get certified, gain experience, and advance your cybersecurity career.
                 </p>
                 <div className="flex gap-4">
-                  <Button className="font-semibold bg-red-600 hover:bg-red-700 text-white px-8 py-3">
-                    Enroll Now
-                  </Button>
+                  <Link href="/register">
+                    <Button className="font-semibold bg-red-600 hover:bg-red-700 text-white px-8 py-3">
+                      Enroll Now
+                    </Button>
+                  </Link>
                 </div>
               </div>
               <div className="relative h-64 rounded-lg overflow-hidden">

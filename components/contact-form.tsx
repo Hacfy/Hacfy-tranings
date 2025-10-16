@@ -215,7 +215,7 @@ export function ContactForm() {
                     <SelectTrigger className="bg-[#0B0F1A] border-[#2a2f3e] text-[#E5E5E5] focus:border-[#00E5FF] mobile-input mobile-focus">
                       <SelectValue placeholder="Select a program" />
                     </SelectTrigger>
-                    <SelectContent className="bg-[#1a1f2e] border-[#2a2f3e]">
+                    <SelectContent className="bg-[#1a1f2e] border-[#2a2f3e] text-white">
                       <SelectItem value="2-day-workshop">2-Day Workshop</SelectItem>
                       <SelectItem value="3-day-workshop">3-Day Workshop</SelectItem>
                       <SelectItem value="5-day-workshop">5-Day Workshop</SelectItem>

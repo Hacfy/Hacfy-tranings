@@ -23,6 +23,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import Link from "next/link"
+import { Navigation } from "@/components/navigation"
+
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -137,6 +139,7 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <Navigation />
       <div className="relative py-24 px-4 bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div

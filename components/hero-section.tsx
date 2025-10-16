@@ -57,6 +57,7 @@ export function HeroSection() {
              Register Now
           </Button>
           <Button
+            onClick={() => (window.location.href = "/internship")}
             size="lg"
             variant="outline"
             className="w-full sm:w-auto border-gray-500 text-gray-200 bg-gray-800 hover:bg-gray-700 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold rounded-xl sm:rounded-2xl transition-all duration-300 mobile-button mobile-touch-target"
