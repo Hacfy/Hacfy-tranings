@@ -90,7 +90,9 @@ export function ContactForm() {
   }
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 mobile-section">
+    <section 
+    id="contact"
+    className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 mobile-section">
       <div className="max-w-6xl mx-auto mobile-container">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-balance mobile-heading">

@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   generator: "v0.app",
   keywords:
     "cybersecurity training, ethical hacking, penetration testing, SOC analyst, bug bounty, cybersecurity bootcamp",
+  icons: {
+    icon: "/favicon.ico", // 👈 add this line
+  },
 }
 
 export default function RootLayout({
