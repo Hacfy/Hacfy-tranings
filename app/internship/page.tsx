@@ -6,15 +6,15 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
 import { Navigation } from "@/components/navigation"
-import { 
-  Award, 
-  Users, 
-  Clock, 
-  CheckCircle, 
-  Star, 
-  Shield, 
-  Target, 
-  BookOpen, 
+import {
+  Award,
+  Users,
+  Clock,
+  CheckCircle,
+  Star,
+  Shield,
+  Target,
+  BookOpen,
   Laptop,
   Trophy,
   Calendar,
@@ -44,29 +44,29 @@ export default function InternshipPage() {
   return (
     <div className="min-h-screen bg-[#0B0F1A] text-white">
       {/* Hero Section */}
-      <Navigation/>
+      <Navigation />
       <section className="relative py-20 px-4 bg-gradient-to-br from-black via-gray-900 to-gray-800">
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-white mobile-heading"
             >
-              Cybersecurity <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent animate-gradient-x">Internship Program</span> 
+              Cybersecurity <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent animate-gradient-x">Internship Program</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
               className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto text-balance leading-relaxed mobile-readable"
             >
-              6 months of intensive hands-on training with real-world projects, CTFs, and 1:1 mentorship 
+              6 months of intensive hands-on training with real-world projects, CTFs, and 1:1 mentorship
               from cybersecurity experts. Transform your career with industry-ready skills.
             </motion.p>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -89,7 +89,7 @@ export default function InternshipPage() {
       {/* Program Overview Section */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-50 mobile-section">
         <div className="max-w-7xl mx-auto mobile-container">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -132,7 +132,7 @@ export default function InternshipPage() {
                       { icon: Flag, text: "Real-world Projects & CTFs" },
                       { icon: UserCheck, text: "1:1 Mentorship from Experts" }
                     ].map((item, index) => (
-                      <motion.div 
+                      <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -176,7 +176,7 @@ export default function InternshipPage() {
                       { color: "bg-red-400", title: "Month 5: Advanced Techniques", desc: "Penetration testing and exploit development" },
                       { color: "bg-red-300", title: "Month 6: Capstone Project", desc: "Final project, CTF competitions, and career preparation" }
                     ].map((phase, index) => (
-                      <motion.div 
+                      <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -203,7 +203,7 @@ export default function InternshipPage() {
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-white via-gray-50 to-white mobile-section">
         <div className="max-w-7xl mx-auto mobile-container">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -215,7 +215,7 @@ export default function InternshipPage() {
                   Personal <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">1:1 Mentorship</span>
                 </h2>
                 <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 mobile-readable">
-                  Get dedicated guidance from certified cybersecurity experts who will personally mentor you 
+                  Get dedicated guidance from certified cybersecurity experts who will personally mentor you
                   throughout your 6-month journey.
                 </p>
               </div>
@@ -238,7 +238,7 @@ export default function InternshipPage() {
                     description: "Get career advice, industry insights, and access to professional networks that can accelerate your cybersecurity career."
                   }
                 ].map((item, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -262,7 +262,7 @@ export default function InternshipPage() {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -290,7 +290,7 @@ export default function InternshipPage() {
       {/* Hands-on Training Section */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-50 mobile-section">
         <div className="max-w-7xl mx-auto mobile-container">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -362,8 +362,8 @@ export default function InternshipPage() {
                     <p className="text-sm text-gray-600 mb-4 text-center mobile-readable">{training.description}</p>
                     <div className="grid grid-cols-1 gap-2">
                       {training.features.map((feature, featureIndex) => (
-                        <motion.div 
-                          key={featureIndex} 
+                        <motion.div
+                          key={featureIndex}
                           initial={{ opacity: 0, y: 5 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: featureIndex * 0.1, duration: 0.4 }}
@@ -388,7 +388,7 @@ export default function InternshipPage() {
       {/* Learning Modes Section */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-white via-gray-50 to-white mobile-section">
         <div className="max-w-7xl mx-auto mobile-container">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -426,7 +426,7 @@ export default function InternshipPage() {
                       "Online collaboration tools",
                       "Flexible schedule options"
                     ].map((feature, index) => (
-                      <motion.div 
+                      <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 5 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -470,7 +470,7 @@ export default function InternshipPage() {
                       "Networking with peers",
                       "Hands-on hardware experience"
                     ].map((feature, index) => (
-                      <motion.div 
+                      <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 5 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -498,7 +498,7 @@ export default function InternshipPage() {
       {/* Success Stories Section */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-50 mobile-section">
         <div className="max-w-7xl mx-auto mobile-container">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -578,11 +578,11 @@ export default function InternshipPage() {
                         <Star key={i} className="w-4 h-4 text-red-500 fill-current group-hover:scale-110 transition-transform duration-300" />
                       ))}
                     </div>
-                    
+
                     <blockquote className="text-gray-600 mb-4 italic text-sm mobile-readable group-hover:text-gray-700 transition-colors">
                       "{story.quote}"
                     </blockquote>
-                    
+
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-red-100 group-hover:ring-red-200 transition-all duration-300">
                         <Image
@@ -610,14 +610,14 @@ export default function InternshipPage() {
       {/* CTA Section */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-black via-gray-900 to-black mobile-section">
         <div className="max-w-7xl mx-auto mobile-container">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="bg-gradient-to-r from-red-600 via-red-700 to-red-800 rounded-2xl p-6 sm:p-8 text-white shadow-2xl"
           >
-            
+
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center relative">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -629,20 +629,19 @@ export default function InternshipPage() {
                   Ready to Start Your <span className="text-white/90">Cybersecurity Career?</span>
                 </h3>
                 <p className="text-base sm:text-lg mb-6 opacity-90 mobile-readable">
-                  Join our 6-month internship program and get hands-on experience with real-world projects, 
+                  Join our 6-month internship program and get hands-on experience with real-world projects,
                   expert mentorship, and industry-ready skills.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <Button className="bg-white text-red-600 hover:bg-gray-100 hover:text-red-700 font-semibold px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target shadow-lg hover:shadow-white/25 transition-all duration-300">
+                  <Button
+                    onClick={() => (window.location.href = "/register")}
+                    className="bg-white text-red-600 hover:bg-gray-100 hover:text-red-700 font-semibold px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target shadow-lg hover:shadow-white/25 transition-all duration-300">
                     Apply for Internship
-                  </Button>
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-red-600 font-semibold px-6 sm:px-8 py-2 sm:py-3 mobile-button mobile-touch-target shadow-lg hover:shadow-white/25 transition-all duration-300">
-                    Download Brochure
                   </Button>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
