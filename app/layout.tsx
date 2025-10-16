@@ -19,7 +19,9 @@ export const metadata: Metadata = {
   keywords:
     "cybersecurity training, ethical hacking, penetration testing, SOC analyst, bug bounty, cybersecurity bootcamp",
   icons: {
-    icon: "/favicon.ico", // 👈 add this line
+    icon: "/logo1.png", // ✅ must point to public/favicon.ico
+    shortcut: "/logo1.png",
+    apple: "/logo1.png",
   },
 }
 
@@ -30,6 +32,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* ✅ Explicitly include link for favicon (helps ensure browser caching updates) */}
+        <link rel="icon" href="/logo1.png" sizes="any" />
+      </head>
       <body className={`font-sans ${poppins.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
